@@ -1,0 +1,18 @@
+ls
+lb
+help
+ipojo instance
+instance
+clear
+help
+ipojo:instance
+ipojo:instances
+help
+ipojo:instances
+ipojo:instance my.first.follow.me
+ipojo:instances
+ipojo:instance my.first.follow.me
+ipojo:instances
+ipojo:instance my.first.follow.me
+stop
+exit

@@ -1,0 +1,71 @@
+Manifest-Version: 1.0
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Built-By: hudsonBuild
+Bundle-SymbolicName: org.eclipse.amalgam.discovery.modeling;singleton:
+ =true
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.ui,org.eclipse.am
+ algam.discovery.ui;bundle-version="1.0.0"
+Bundle-Activator: org.eclipse.amalgam.discovery.modeling.Activator
+Bundle-Version: 1.2.0.201206050806
+Build-Jdk: 1.6.0_21
+Bundle-Vendor: Eclipse Modeling Project
+Bundle-ActivationPolicy: lazy
+Bundle-Name: Amalgam Modeling Discovery UI
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Bundle-ManifestVersion: 2
+
+Name: META-INF/maven/org.eclipse.amalgam/org.eclipse.amalgam.discovery
+ .modeling/pom.xml
+SHA1-Digest: ubR8t9/TXtm4Uu8SXo5/wyacfNo=
+
+Name: intro/amalgamDiscovery.xml
+SHA1-Digest: 3w4/q5mQFLFYM5PWoQUX37CgfQM=
+
+Name: org/eclipse/amalgam/discovery/modeling/handlers/ModelingDiscover
+ yAction.class
+SHA1-Digest: tbw8VKe61dJXFxKUayTcKC4PhfM=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: 09gN05tobgS/MdtqyTNQhOhB73M=
+
+Name: icons/modeling32.png
+SHA1-Digest: ADlLWFV0eQ74YnLvHnPFkYLeLrs=
+
+Name: META-INF/maven/org.eclipse.amalgam/org.eclipse.amalgam.discovery
+ .modeling/pom.properties
+SHA1-Digest: l6Tws6ISxGHYbcexT56y50AyjjI=
+
+Name: about.html
+SHA1-Digest: ztzTKONYJdfqz4aa9yHkuSdsVnE=
+
+Name: org/eclipse/amalgam/discovery/modeling/Activator.class
+SHA1-Digest: 6DuHUwm3sfNSMyAk2qtMkKwqDS4=
+
+Name: icons/modeling16.png
+SHA1-Digest: KettLzBpGACnApEEOLfyzhYHo30=
+
+Name: org/eclipse/amalgam/discovery/modeling/handlers/ModelingDiscover
+ yAction$1.class
+SHA1-Digest: 6+swCVotfP87Pm6FuuLRF6SBZy8=
+
+Name: org/eclipse/amalgam/discovery/modeling/handlers/ModelingDiscover
+ yHandler.class
+SHA1-Digest: UcrQTaqny3leHqA35Err+or7Suk=
+
+Name: intro/css/overview.properties
+SHA1-Digest: zipIO9ctauZ0bQh+d9GBpdkynrU=
+
+Name: plugin.xml
+SHA1-Digest: 9R0UJdUodL9qw+PsgmY5F4nq124=
+
+Name: intro/css/overview.css
+SHA1-Digest: AavDm7mjtRW3svZa38Q0Xtjh4mw=
+
+Name: intro/images/banner-discovery.png
+SHA1-Digest: PRjm7eHzyk7VJ5FwKvovVeMDbpY=
+
+Name: org/eclipse/amalgam/discovery/modeling/handlers/ModelingDiscover
+ yHandler$1.class
+SHA1-Digest: onLmZbMC2EDxKlpF4KSLz6QinFk=
+

@@ -1,0 +1,240 @@
+
+   iCasa Simulator :: iCasa Teaching Distribution
+   Copyright 2011-2013 Universite Joseph Fourier, LIG, ADELE Research Group
+   Licensed under a specific end user license agreement;
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+   
+      http://adeleresearchgroup.github.com/iCasa-Simulator/snapshot/license.html
+   
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+   This product includes software developed at
+   Universite Joseph Fourier, LIG, ADELE Research Group, 
+    .
+   Under specific user license
+   http://adeleresearchgroup.github.com/iCasa-Simulator/snapshot/license.html
+   
+   
+   This product includes software developed at
+   Universite Joseph Fourier, LIG, ADELE Research Group,
+     under the Apache License 2.0
+   - ADELE-Common
+   - iCasa Platform
+
+   This product includes software developed by
+   Copyright (c) 2010-2013 Jeremy Ashkenas, DocumentCloud,
+   - Backbone
+   Under the following license:
+   Copyright (c) 2010-2013 Jeremy Ashkenas, DocumentCloud
+
+   Permission is hereby granted, free of charge, to any person
+   obtaining a copy of this software and associated documentation
+   files (the "Software"), to deal in the Software without
+   restriction, including without limitation the rights to use,
+   copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the
+   Software is furnished to do so, subject to the following
+   conditions:
+
+   The above copyright notice and this permission notice shall be
+   included in all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+   NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+   HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+   WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+   OTHER DEALINGS IN THE SOFTWARE.
+
+   This product includes software developed by
+   Yourkit (www.yourkit.com)
+   under the Apache License 2.0.
+   - Athmosphere
+
+
+   This product includes software developed by
+   The jQuery Foundation under the MIT license.
+   - jQuery
+
+   This product includes software developed at
+   Universite Joseph Fourier, LIG, ADELE Research Group,
+   under the Apache License 2.0
+   - Atmosphere OSGi Component
+   - Atmosphere OSGi Service
+
+   This product includes software developped by
+   Guillaume Bort (http://guillaume.bort.fr),
+   zenexity (http://www.zenexity.fr) and
+   Play framework contributors,
+   under the Apache License 2.0
+   - Play Framework
+
+
+   This product includes software developed by
+   Twitter, Inc. under the Apache License 2.0
+   - Bootstrap
+
+   This product includes software developed by
+   Yehuda Kats.
+   - handlebars
+   Under the following license.
+   Copyright (C) 2011 by Yehuda Katz
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   THE SOFTWARE.
+
+   This product includes software developed by
+   Kevin Malakoff.
+   - knockback
+   Under the following license.
+   Copyright (c) 2011-2013 Kevin Malakoff
+
+   Permission is hereby granted, free of charge, to any person
+   obtaining a copy of this software and associated documentation
+   files (the "Software"), to deal in the Software without
+   restriction, including without limitation the rights to use,
+   copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the
+   Software is furnished to do so, subject to the following
+   conditions:
+
+   The above copyright notice and this permission notice shall be
+   included in all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+   NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+   HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+   WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+   OTHER DEALINGS IN THE SOFTWARE.
+
+   This product includes software developed by Steve Sanderson
+   under the MIT License
+   - knockoutJS
+
+   This product includes software developed by Tim Down
+   under the Apache License, Version 2.0
+   - log4javascript
+
+   This product includes software developed by Modernizr,
+   under the MIT License
+   - modernizrJS
+
+   This product includes software obtained from requirejs.org
+   under the MIT License
+   - requirejs
+
+   This product includes software developed by Aaron Quint
+   under the MIT License
+   - samy
+
+   This product includes software developed by Jeremy ashkenas,
+   DocumentCloud Inc. Under the MIT License
+   - underscorejs
+
+
+   This product includes software developed at
+   The OW2 Consortium (http://www.ow2.org/).
+   Licensed under the Apache License 2.0.
+   - OW2 Chameleon - JSON Bundle
+   - OW2 Chameleon - JSON-Service
+   - OW2 Chameleon - json.org JSON Service Implementation
+   - OW2 Chameleon - Shared Preferences Service
+   - OW2 Chameleon - RoSe JAX-RS Exporter
+
+   This product includes software developed at
+   The Apache Software Foundation (http://www.apache.org/).
+   Under the Apache License 2.0
+   - Apache Log4J
+   - Apache Felix Configuration Admin Service
+   - Apache Felix EventAdmin
+   - Apache Felix File Install
+   - Apache Felix Gogo Command
+   - Apache Felix Gogo Runtime
+   - Apache Felix Gogo Shell
+   - Apache Felix Http Jetty
+   - Apache Felix Http Whiteboard
+   - Apache Felix iPOJO
+   - Apache Felix iPOJO Composite
+   - Apache Felix iPOJO Gogo Command
+   - Apache Felix iPOJO Extender Pattern Handler
+   - Apache Felix iPOJO WebConsole Plugins
+   - Apache Felix Log Service
+   - Apache Felix Preferences Service
+   - Apache Felix Web Management Console
+   - Apache Felix Web Console Event Plugin
+
+   This product includes software developed at
+   The OSGi Alliance (http://www.osgi.org/).
+   Copyright (c) OSGi Alliance (2000, 2009).
+   Licensed under the Apache License 2.0.
+
+   - org.osgi.compendium
+   - org.osgi.core
+
+
+   This product includes software developed at Akquinet A.G
+   under the Apache License 2.0
+   - AutoConf ResourceProcessor
+   - Deployment Admin
+   - H-UBU
+
+   This product includes software developed by
+   Google under the Apache License 2.0
+   - Guava: Google Core Libraries for Java
+
+   This product includes software developed by Oracle Corporation
+   licensed  under  the GNU  General Public  License Version 2
+   with classpath  exception. Alternatively under  the Common
+   Development and Distribution License, version 1.1.
+   - jersey-core
+   - jersey-server
+   - jersey-multipart
+
+   This product includes software developed at
+   The JSON-lib project (http://json-lib.sourceforge.net/).
+   Licensed under the Apache License 2.0.
+   - JSON (JavaScript Object Notation)
+
+   This product includes software developed by QOS (www.qos.ch)
+   under the MIT license
+   - SLF4
+
+   This product includes software developed by Sun Microsystems, Inc.
+   licensed  under  the GNU  General Public  License Version 2
+   with classpath  exception. Alternatively under  the Common
+   Development and Distribution License, version 1.1.
+   - MIME streaming extension
+   - JavaMail
+   - Jaxb-api
+
+
+    This product includes software from http://kxml.sourceforge.net.
+    Copyright (c) 2002,2003, Stefan Haustein, Oberhausen, Rhld., Germany.
+    Licensed under BSD License.
+  
+

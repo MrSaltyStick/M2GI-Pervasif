@@ -1,0 +1,1 @@
+sh ./chameleon.sh --interactive
