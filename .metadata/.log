@@ -1,0 +1,172 @@
+!SESSION 2025-03-19 10:08:01.631 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.8.0_442
+java.vendor=Private Build
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.modeling.product
+Command-line arguments:  -data /home/bossyr/m2_gi/systemes_pervasifs/projet-final -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.modeling.product
+
+!ENTRY org.eclipse.ui 2 2 2025-03-19 10:08:10.719
+!MESSAGE Invalid preference category path: metadata.ipojo.editor.general (bundle: ipojo.preferences, page: metadata.ipojo.editor.deploymentPage)
+
+!ENTRY org.eclipse.ui 2 2 2025-03-19 10:08:41.137
+!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
+!SESSION 2025-03-19 10:08:41.869 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.8.0_442
+java.vendor=Private Build
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.modeling.product
+Command-line arguments:  -data /home/bossyr/m2_gi/systemes_pervasifs/projet-final -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.modeling.product
+
+!ENTRY org.eclipse.ui 2 2 2025-03-19 10:08:49.942
+!MESSAGE Invalid preference category path: metadata.ipojo.editor.general (bundle: ipojo.preferences, page: metadata.ipojo.editor.deploymentPage)
+
+!ENTRY org.eclipse.ui 2 2 2025-03-19 10:09:03.430
+!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
+!SESSION 2025-03-19 10:09:04.160 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.8.0_442
+java.vendor=Private Build
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.modeling.product
+Command-line arguments:  -data /home/bossyr/m2_gi/systemes_pervasifs/projet-final -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.modeling.product
+
+!ENTRY org.eclipse.ui 2 2 2025-03-19 10:14:19.390
+!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
+
+!ENTRY org.eclipse.ui 2 2 2025-03-19 10:17:23.338
+!MESSAGE Invalid preference category path: metadata.ipojo.editor.general (bundle: ipojo.preferences, page: metadata.ipojo.editor.deploymentPage)
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:28:04.161
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:28:13.970
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:28:44.067
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:28:45.715
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:28:57.426
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:29:00.802
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:29:14.025
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:29:41.988
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:29:57.203
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:29:58.260
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:29:59.296
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:30:20.196
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:31:03.812
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:31:53.796
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:31:58.806
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:32:47.268
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:32:57.029
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:33:05.717
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:33:12.149
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:33:13.593
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:33:22.070
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:34:09.621
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:34:19.030
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:34:23.174
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 10:37:12.025
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 2 0 2025-03-19 11:08:18.423
+!MESSAGE FireDetector: Project manipulation canceled: project has errors
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 4 0 2025-03-19 11:12:53.026
+!MESSAGE FireDetector: The field detectionDelay is referenced in the metadata but does not exist in the org.m2gi.fire.FireDetectorImpl class
+
+!ENTRY org.ow2.chameleon.eclipse.ipojo.nature 4 0 2025-03-19 11:12:53.595
+!MESSAGE FireDetector: The field detectionDelay is referenced in the metadata but does not exist in the org.m2gi.fire.FireDetectorImpl class
+
+!ENTRY org.eclipse.ui 4 0 2025-03-19 11:12:56.625
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: null argument:
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:85)
+	at org.eclipse.core.runtime.Assert.isNotNull(Assert.java:73)
+	at org.eclipse.text.edits.TextEditProcessor.<init>(TextEditProcessor.java:64)
+	at org.eclipse.text.edits.TextEditProcessor.<init>(TextEditProcessor.java:59)
+	at org.eclipse.jface.text.RewriteSessionEditProcessor.<init>(RewriteSessionEditProcessor.java:76)
+	at org.eclipse.jdt.internal.ui.javaeditor.DocumentAdapter$ApplyTextEditCommand.run(DocumentAdapter.java:176)
+	at org.eclipse.jdt.internal.ui.javaeditor.DocumentAdapter.run(DocumentAdapter.java:112)
+	at org.eclipse.jdt.internal.ui.javaeditor.DocumentAdapter.access$1(DocumentAdapter.java:109)
+	at org.eclipse.jdt.internal.ui.javaeditor.DocumentAdapter$ApplyTextEditCommand.applyTextEdit(DocumentAdapter.java:186)
+	at org.eclipse.jdt.internal.ui.javaeditor.DocumentAdapter.applyTextEdit(DocumentAdapter.java:588)
+	at org.eclipse.jdt.internal.core.CompilationUnit.applyTextEdit(CompilationUnit.java:74)
+	at liglab.imag.fr.metadata.util.JDTUtil.formatCompilationUnit(JDTUtil.java:229)
+	at liglab.imag.fr.metadata.util.ImplementationClassModel.completeImplementationClass(ImplementationClassModel.java:346)
+	at liglab.imag.fr.metadata.ui.editor.page.component.ComponentMasterDetailBlock$CompleteComponentClassAction.run(ComponentMasterDetailBlock.java:201)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:584)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:501)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:411)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1276)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3562)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3186)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)

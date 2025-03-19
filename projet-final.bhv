@@ -1,0 +1,27 @@
+<behavior startdate="27/10/2011-00:00:00" factor="100">
+	 
+	<create-zone id="kitchen"  leftX="410" topY="370" X-Length="245" Y-Length="210" />	 
+	<add-zone-variable zoneId="kitchen" variable="Temperature" />
+	<modify-zone-variable zoneId="kitchen" variable="Temperature" value="505.0"/>
+	
+	<create-device id="Kit-T1" type="iCasa.Thermometer" />
+	<move-device-zone deviceId="Kit-T1" zoneId="kitchen" />
+
+	<create-zone id="livingroom" leftX="410" topY="28" X-Length="245" Y-Length="350" />
+	
+	<create-device id="Liv-T1" type="iCasa.Thermometer" />
+	<move-device-zone deviceId="Liv-T1" zoneId="livingroom" />
+	
+	<create-zone id="bedroom"  leftX="55" topY="370" X-Length="259" Y-Length="210" />
+	
+	<create-device id="Bed-T1" type="iCasa.Thermometer" />
+	<move-device-zone deviceId="Bed-T1" zoneId="bedroom" />
+	
+	<create-zone id="bathroom"  leftX="55" topY="20" X-Length="260" Y-Length="350" />
+	
+	<create-device id="Bath-T1" type="iCasa.Thermometer" />
+	<move-device-zone deviceId="Bath-T1" zoneId="bathroom" />
+	
+	
+</behavior>
+

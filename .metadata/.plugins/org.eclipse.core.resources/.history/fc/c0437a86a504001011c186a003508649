@@ -1,0 +1,59 @@
+package org.m2gi.fire;
+
+import fr.liglab.adele.icasa.device.temperature.Thermometer;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class FireDetectorImpl implements Runnable {
+
+	private Thread thread;
+	
+	/** Field for thermometers dependency */
+	private Thermometer[] thermometers;
+	
+	public FireDetectorImpl() {
+		super();
+	}
+
+	/** Bind Method for thermometers dependency */
+	public void bindThermometer(Thermometer thermometer, Map properties) {
+	}
+
+	/** Unbind Method for thermometers dependency */
+	public void unbindThermometer(Thermometer thermometer, Map properties) {
+	}
+
+	/** Component Lifecycle Method */
+	public void stop() {
+		thread.interrupt();
+	}
+
+	/** Component Lifecycle Method */
+	public void start() {
+		thread = new Thread(this);
+		thread.start();
+	}
+
+	@Override
+	public void run() {
+		try {
+			while(true) {
+				Thread.sleep(5000);
+				
+				HashMap<String, Integer> nbElems = new HashMap<String, Integer>();
+				HashMap<String, Double> sums = new HashMap<String, Double>();
+				
+				for(Thermometer thermometer: thermometers) {
+					String zone = (String) thermometer.getPropertyValue("Location");
+					int nb = nbElems.get(zone) + 1;
+					float sum = sums.get(zone) + thermometer.getTemperature();
+					
+					
+				}
+			}
+		} catch(InterruptedException e) {
+		}
+	}
+	
+}

@@ -1,0 +1,31 @@
+package org.m2gi.fire;
+
+import fr.liglab.adele.icasa.device.temperature.Thermometer;
+import java.util.Map;
+
+public class FireDetectorImpl {
+
+	/** Field for thermometers dependency */
+	private Thermometer[] thermometers;
+
+	/** Bind Method for thermometers dependency */
+	public void bindThermometer(Thermometer thermometer, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Unbind Method for thermometers dependency */
+	public void unbindThermometer(Thermometer thermometer, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Component Lifecycle Method */
+	public void stop() {
+		// TODO: Add your implementation code here
+	}
+
+	/** Component Lifecycle Method */
+	public void start() {
+		// TODO: Add your implementation code here
+	}
+
+}

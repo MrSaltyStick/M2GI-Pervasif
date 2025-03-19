@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="iPojo-RT" sequenceNumber="5">
+<locations>
+<location path="/home/bossyr/m2_gi/systemes_pervasifs/icasa.teaching.distribution/bin" type="Directory"/>
+<location path="/home/bossyr/m2_gi/systemes_pervasifs/icasa.teaching.distribution/core" type="Directory"/>
+<location path="/home/bossyr/m2_gi/systemes_pervasifs/icasa.teaching.distribution/runtime" type="Directory"/>
+</locations>
+<environment>
+<os>linux</os>
+<ws>gtk</ws>
+<arch>x86_64</arch>
+<nl>en_US</nl>
+</environment>
+<launcherArgs>
+<vmArgs>-Dosgi.requiredJavaVersion=1.5 -Dhelp.lucene.tokenizer=standard -XX:MaxPermSize=256m -Xms40m -Xmx512m</vmArgs>
+</launcherArgs>
+</target>

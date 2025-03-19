@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="true" key="generateActivator"/>
+	<item value="standard" key="targetName"/>
+	<item value="false" key="apiAnalysis"/>
+	<item value="false" key="rcpPlugin"/>
+	<item value="true" key="osgiProject"/>
+	<section name="quick_assist_proposal_size">
+	</section>
+</section>

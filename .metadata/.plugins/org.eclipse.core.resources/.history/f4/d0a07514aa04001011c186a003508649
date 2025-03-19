@@ -1,0 +1,66 @@
+package org.m2gi.fire;
+
+import fr.liglab.adele.icasa.device.temperature.Thermometer;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class FireDetectorImpl implements Runnable {
+
+	private Thread thread;
+	
+	/** Field for thermometers dependency */
+	private Thermometer[] thermometers;
+	
+	public FireDetectorImpl() {
+		super();
+	}
+
+	/** Bind Method for thermometers dependency */
+	public void bindThermometer(Thermometer thermometer, Map properties) {
+	}
+
+	/** Unbind Method for thermometers dependency */
+	public void unbindThermometer(Thermometer thermometer, Map properties) {
+	}
+
+	/** Component Lifecycle Method */
+	public void stop() {
+		thread.interrupt();
+	}
+
+	/** Component Lifecycle Method */
+	public void start() {
+		thread = new Thread(this);
+		thread.start();
+	}
+
+	@Override
+	public void run() {
+		try {
+			while(true) {
+				Thread.sleep(5000);
+				
+				HashMap<String, Integer> nbElems = new HashMap<String, Integer>();
+				HashMap<String, Double> sums = new HashMap<String, Double>();
+				
+				System.out.println("Getting temperatures of each rooms");
+				for(Thermometer thermometer: thermometers) {
+					String zone = (String) thermometer.getPropertyValue("Location");
+					int nb = (nbElems.containsKey(zone) ? nbElems.get(zone) : 0) + 1;
+					double sum = (sums.containsKey(zone) ? sums.get(zone) : 0.0) + thermometer.getTemperature();
+					
+					nbElems.put(zone, nb);
+					sums.put(zone, sum);
+				}
+				
+				for(String zone: nbElems.keySet()) {
+					double mean = sums.get(zone) / nbElems.get(zone);
+					System.out.println("Mean temperature in the zone " + zone + ": " + (mean - 272.15) + "C");
+				}
+			}
+		} catch(InterruptedException e) {
+		}
+	}
+	
+}

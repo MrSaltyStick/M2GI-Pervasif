@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipojo xmlns="org.apache.felix.ipojo">
+  <component classname="org.m2gi.fire.FireDetectorImpl" name="FireDetector">
+    <callback method="start" transition="validate"/>
+    <callback method="stop" transition="invalidate"/>
+    <requires aggregate="true" specification="fr.liglab.adele.icasa.device.temperature.Thermometer" field="thermometers">
+      <callback method="bindThermometer" type="bind"/>
+      <callback method="unbindThermometer" type="unbind"/>
+    </requires>
+  </component>
+</ipojo>
