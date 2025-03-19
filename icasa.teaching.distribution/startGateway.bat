@@ -1,1 +1,0 @@
-chameleon.bat --interactive

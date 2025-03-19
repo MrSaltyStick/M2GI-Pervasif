@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<?metadataRepository version='1.1.0'?>
-<repository name='update site: file:/C:/Users/Mathieu/Documents/M2-2025/TP-init/Pervasif/eclipse-modeling-juno-SR2-win32-x86_64/eclipse/configuration/org.eclipse.osgi/bundles/254/data/listener_1925729951/' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
-  <properties size='2'>
-    <property name='p2.timestamp' value='1737370237368'/>
-    <property name='site.checksum' value='0'/>
-  </properties>
-</repository>
