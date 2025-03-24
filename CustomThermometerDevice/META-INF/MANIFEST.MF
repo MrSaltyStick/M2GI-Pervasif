@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: FireDetector
+Bundle-Name: CustomThermometer
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-SymbolicName: FireDetector
+Bundle-SymbolicName: CustomThermometerDevice
 Bundle-Version: 1.0.0.qualifier
 Created-By: iPOJO 1.12.1
-Export-Package: org.m2gi.fire
+Export-Package: org.m2gi.devices.thermometer
 Import-Package: fr.liglab.adele.icasa, fr.liglab.adele.icasa.access, f
  r.liglab.adele.icasa.access.command, fr.liglab.adele.icasa.applicatio
  n, fr.liglab.adele.icasa.application.impl, fr.liglab.adele.icasa.appl
@@ -43,27 +43,21 @@ Import-Package: fr.liglab.adele.icasa, fr.liglab.adele.icasa.access, f
  .0.0)", org.apache.felix.ipojo.architecture;version="[1.12.1,2.0.0)",
   org.json, org.osgi.service.cm;version=1.2, org.osgi.service.log;vers
  ion=1.3
-iPOJO-Components: instance { $component="FireDetector" $name="FireDete
- ctor" }component { $classname="org.m2gi.fire.FireDetectorImpl" $name=
- "FireDetector" callback { $method="start" $transition="validate" }cal
- lback { $method="stop" $transition="invalidate" }requires { $aggregat
- e="true" $specification="fr.liglab.adele.icasa.device.temperature.The
- rmometer" $field="thermometers" callback { $method="bindThermometer" 
- $type="bind" }callback { $method="unbindThermometer" $type="unbind" }
- }properties { property { $field="detectionDelay" $name="detectionDela
- y" $type="java.lang.Long" $value="5000" }property { $field="temperatu
- reThreshold" $name="temperatureThreshold" $type="java.lang.Double" $v
- alue="323.15" }}manipulation { $classname="org.m2gi.fire.FireDetector
- Impl" interface { $name="java.lang.Runnable" }field { $name="detectio
- nDelay" $type="java.lang.Long" }field { $name="temperatureThreshold" 
- $type="java.lang.Double" }field { $name="thermometers" $type="fr.ligl
- ab.adele.icasa.device.temperature.Thermometer[]" }field { $name="thre
- ad" $type="java.lang.Thread" }method { $name="bindThermometer" $argum
- ents="{fr.liglab.adele.icasa.device.temperature.Thermometer,java.util
- .Map}" $names="{thermometer,properties}" }method { $name="unbindTherm
- ometer" $arguments="{fr.liglab.adele.icasa.device.temperature.Thermom
- eter,java.util.Map}" $names="{thermometer,properties}" }method { $nam
- e="stop" }method { $name="start" }method { $name="run" }method { $nam
- e="hasFireStarted" $return="boolean" $arguments="{java.lang.Double[],
- double}" $names="{zoneOldVals,currentTemperature}" }}}
+iPOJO-Components: component { $name="iCasa.CustomThermometer" $classna
+ me="org.m2gi.devices.thermometer.CustomThermometerImpl" provides { pr
+ operty { $name="" $type="java.lang.String" }property { $name="device.
+ serialNumber" $field="m_serialNumber" $mandatory="true" }}manipulatio
+ n { $classname="org.m2gi.devices.thermometer.CustomThermometerImpl" $
+ super="fr.liglab.adele.icasa.device.util.AbstractDevice" interface { 
+ $name="fr.liglab.adele.icasa.device.temperature.Thermometer" }interfa
+ ce { $name="fr.liglab.adele.icasa.simulator.SimulatedDevice" }field {
+  $name="m_serialNumber" $type="java.lang.String" }field { $name="m_zo
+ ne" $type="fr.liglab.adele.icasa.location.Zone" }field { $name="m_zon
+ eListener" $type="org.m2gi.devices.thermometer.CustomThermometerImpl$
+ CustomZoneListener" }method { $name="getSerialNumber" $return="java.l
+ ang.String" }method { $name="enterInZones" $arguments="{java.util.Lis
+ t}" $names="{zones}" }method { $name="getTemperature" $return="double
+ " }inner { $name="CustomZoneListener" method { $name="zoneVariableMod
+ ified" $arguments="{fr.liglab.adele.icasa.location.Zone,java.lang.Str
+ ing,java.lang.Object,java.lang.Object}" $names="{}" }}}}
 

@@ -14,6 +14,9 @@ public class FireDetectorImpl implements Runnable {
 
 	/** Injected field for the component property detectionDelay */
 	private Long detectionDelay;
+
+	/** Injected field for the component property temperatureThreshold */
+	private Double temperatureThreshold;
 	
 	public FireDetectorImpl() {
 		super();
@@ -41,17 +44,39 @@ public class FireDetectorImpl implements Runnable {
 	@Override
 	public void run() {
 		try {
+			HashMap<String, Double[]> oldValues = new HashMap<String, Double[]>();
 			while(true) {
 				Thread.sleep(detectionDelay);
 				
-				System.out.println("Getting temperatures of each rooms");
 				for(Thermometer thermometer: thermometers) {
 					String zone = (String) thermometer.getPropertyValue("Location");
-					System.out.println("Temperature in the room " + zone + ": " + (thermometer.getTemperature() - 272.15) + "C");
+					if(!oldValues.containsKey(zone)) {
+						oldValues.put(zone, new Double[]{ 0.0, 0.0, 0.0 });
+					}
+					
+					double celsiusTemperature = thermometer.getTemperature() - 272.15;
+					Double zoneOldVals[] = oldValues.get(zone);					
+					if(hasFireStarted(zoneOldVals, celsiusTemperature)) {
+						System.out.println("Ho fada y a un incendie dans la pièce " + zone);
+					}
+					
+					for(int i = zoneOldVals.length - 1; i > 0; i--) {
+						zoneOldVals[i] = zoneOldVals[i - 1];
+					}
+					zoneOldVals[0] = celsiusTemperature;
+					oldValues.put(zone, zoneOldVals);
 				}
 			}
 		} catch(InterruptedException e) {
 		}
+	}
+	
+	private boolean hasFireStarted(Double[] zoneOldVals, double currentTemperature) {
+		int i = 0;
+		while(i < zoneOldVals.length && zoneOldVals[i] > temperatureThreshold) {
+			i++;
+		}
+		return i == zoneOldVals.length && currentTemperature > temperatureThreshold;
 	}
 	
 }

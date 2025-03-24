@@ -9,6 +9,7 @@
     </requires>
     <properties>
       <property field="detectionDelay" name="detectionDelay" type="java.lang.Long" value="5000"/>
+      <property field="temperatureThreshold" name="temperatureThreshold" type="java.lang.Double" value="323.15"/>
     </properties>
   </component>
   <instance component="FireDetector" name="FireDetector"/>
