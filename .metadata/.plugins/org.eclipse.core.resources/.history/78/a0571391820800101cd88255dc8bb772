@@ -1,0 +1,58 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: WindowDevice
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-SymbolicName: WindowDevice
+Bundle-Version: 1.0.0.qualifier
+Created-By: iPOJO 1.12.1
+Import-Package: fr.liglab.adele.icasa, fr.liglab.adele.icasa.access, f
+ r.liglab.adele.icasa.access.command, fr.liglab.adele.icasa.applicatio
+ n, fr.liglab.adele.icasa.application.impl, fr.liglab.adele.icasa.appl
+ ication.impl.command, fr.liglab.adele.icasa.application.remote, fr.li
+ glab.adele.icasa.application.remote.util, fr.liglab.adele.icasa.clock
+ service, fr.liglab.adele.icasa.clockservice.impl, fr.liglab.adele.ica
+ sa.clockservice.util, fr.liglab.adele.icasa.command, fr.liglab.adele.
+ icasa.command.handler, fr.liglab.adele.icasa.commands, fr.liglab.adel
+ e.icasa.commands.impl, fr.liglab.adele.icasa.common, fr.liglab.adele.
+ icasa.common.impl, fr.liglab.adele.icasa.common.xml.utils, fr.liglab.
+ adele.icasa.dependency.manager.exception, fr.liglab.adele.icasa.devic
+ e, fr.liglab.adele.icasa.device.bathroomscale, fr.liglab.adele.icasa.
+ device.box, fr.liglab.adele.icasa.device.button, fr.liglab.adele.icas
+ a.device.button.simulated, fr.liglab.adele.icasa.device.doorWindow, f
+ r.liglab.adele.icasa.device.gasSensor, fr.liglab.adele.icasa.device.l
+ ight, fr.liglab.adele.icasa.device.manager, fr.liglab.adele.icasa.dev
+ ice.motion, fr.liglab.adele.icasa.device.power, fr.liglab.adele.icasa
+ .device.presence, fr.liglab.adele.icasa.device.security, fr.liglab.ad
+ ele.icasa.device.settopbox, fr.liglab.adele.icasa.device.sound, fr.li
+ glab.adele.icasa.device.sprinkler, fr.liglab.adele.icasa.device.tempe
+ rature, fr.liglab.adele.icasa.device.util, fr.liglab.adele.icasa.exce
+ ption, fr.liglab.adele.icasa.frontend.services, fr.liglab.adele.icasa
+ .frontend.services.rest, fr.liglab.adele.icasa.frontend.services.util
+ s, fr.liglab.adele.icasa.listener, fr.liglab.adele.icasa.location, fr
+ .liglab.adele.icasa.location.impl, fr.liglab.adele.icasa.location.uti
+ l, fr.liglab.adele.icasa.remote.wisdom, fr.liglab.adele.icasa.remote.
+ wisdom.util, fr.liglab.adele.icasa.service.location, fr.liglab.adele.
+ icasa.service.preferences, fr.liglab.adele.icasa.service.scheduler, f
+ r.liglab.adele.icasa.service.zone.dimension.calculator, fr.liglab.ade
+ le.icasa.service.zone.size.calculator, fr.liglab.adele.icasa.simulato
+ r, fr.liglab.adele.icasa.simulator.listener, fr.liglab.adele.icasa.si
+ mulator.listener.util, fr.liglab.adele.icasa.simulator.remote.wisdom.
+ util, fr.liglab.adele.icasa.simulator.script.executor, fr.liglab.adel
+ e.icasa.simulator.services, org.apache.felix.ipojo;version="[1.12.1,2
+ .0.0)", org.apache.felix.ipojo.architecture;version="[1.12.1,2.0.0)",
+  org.json, org.osgi.service.cm;version=1.2, org.osgi.service.log;vers
+ ion=1.3
+iPOJO-Components: component { $name="iCase.Window" $classname="org.m2g
+ i.devices.window.WindowDeviceImpl" provides { property { $name="" $ty
+ pe="java.lang.String" }property { $name="device.serialNumber" $field=
+ "m_serialNumber" $mandatory="true" }}manipulation { $classname="org.m
+ 2gi.devices.window.WindowDeviceImpl" $super="fr.liglab.adele.icasa.de
+ vice.util.AbstractDevice" interface { $name="org.m2gi.devices.window.
+ WindowDevice" }interface { $name="fr.liglab.adele.icasa.simulator.Sim
+ ulatedDevice" }field { $name="m_isOpen" $type="boolean" }field { $nam
+ e="m_serialNumber" $type="java.lang.String" }field { $name="m_zone" $
+ type="fr.liglab.adele.icasa.location.Zone" }method { $name="getSerial
+ Number" $return="java.lang.String" }method { $name="isOpen" $return="
+ boolean" }method { $name="open" }method { $name="close" }method { $na
+ me="enterInZones" $arguments="{java.util.List}" $names="{zones}" }}}
+

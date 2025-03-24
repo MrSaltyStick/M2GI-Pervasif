@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="88" name="iCasa :: technical.services.impl" provider="ADELE Research Group"/>
+	<bundle bundleID="89" name="iCasa :: device.motion" provider="ADELE Research Group"/>
+	<bundle bundleID="110" name="Jackson-annotations" provider="FasterXML"/>
+	<bundle bundleID="111" name="akka-system" provider="Wisdom Framework"/>
+	<bundle bundleID="112" class="org.apache.felix.eventadmin.impl.Activator" name="Apache Felix EventAdmin" provider="The Apache Software Foundation"/>
+	<bundle bundleID="113" name="FireDetector"/>
+	<bundle bundleID="114" name="WindowDevice"/>
+	<bundle bundleID="90" name="router" provider="Wisdom Framework"/>
+	<bundle bundleID="91" name="iCasa :: device.presence" provider="ADELE Research Group"/>
+	<bundle bundleID="92" name="Joda-Time" provider="Joda.org"/>
+	<bundle bundleID="93" name="JVM Integration for Metrics"/>
+	<bundle bundleID="94" name="Apache Felix iPOJO Gogo Command" provider="The Apache Software Foundation"/>
+	<bundle bundleID="95" name="Netty/Transport" provider="The Netty Project"/>
+	<bundle bundleID="96" name="iCasa :: device.sprinkler" provider="ADELE Research Group"/>
+	<bundle bundleID="97" name="wisdom-executors" provider="Wisdom Framework"/>
+	<bundle bundleID="10" name="iCasa :: device.light" provider="ADELE Research Group"/>
+	<bundle bundleID="98" name="OW2 Shelbie :: API" provider="OW2 Consortium"/>
+	<bundle bundleID="11" name="iCasa :: device.gasSensor" provider="ADELE Research Group"/>
+	<bundle bundleID="99" name="resource-controller" provider="Wisdom Framework"/>
+	<bundle bundleID="12" class="com.ctc.wstx.osgi.WstxBundleActivator" name="Woodstox XML-processor" provider="http://woodstox.codehaus.org"/>
+	<bundle bundleID="13" name="Apache Felix iPOJO Composite" provider="The Apache Software Foundation"/>
+	<bundle bundleID="14" name="iCasa :: device.door.window" provider="ADELE Research Group"/>
+	<bundle bundleID="15" name="JavaBeans Activation Framework" provider="Oracle"/>
+	<bundle bundleID="16" name="iCasa :: application.impl" provider="ADELE Research Group"/>
+	<bundle bundleID="17" name="iCasa :: device.security" provider="ADELE Research Group"/>
+	<bundle bundleID="18" name="Scala Standard Library"/>
+	<bundle bundleID="19" name="iCasa :: context.api" provider="ADELE Research Group"/>
+	<bundle bundleID="1" name="Apache Felix Framework" provider="The Apache Software Foundation"/>
+	<bundle bundleID="2" name="osgi.enterprise" provider="OSGi Alliance"/>
+	<bundle bundleID="3" name="Guava: Google Core Libraries for Java"/>
+	<bundle bundleID="4" name="slf4j-api" provider="SLF4J.ORG"/>
+	<bundle bundleID="5" name="Logback Core Module" provider="QOS.ch"/>
+	<bundle bundleID="6" name="CustomDevice"/>
+	<bundle bundleID="7" name="Commons IO" provider="The Apache Software Foundation"/>
+	<bundle bundleID="8" name="Logback Classic Module" provider="QOS.ch"/>
+	<bundle bundleID="9" name="Commons Logging" provider="The Apache Software Foundation"/>
+	<bundle bundleID="20" name="Jackson-dataformat-XML" provider="FasterXML"/>
+	<bundle bundleID="21" name="iCasa :: access.manager.impl" provider="ADELE Research Group"/>
+	<bundle bundleID="22" name="iCasa :: context.impl" provider="ADELE Research Group"/>
+	<bundle bundleID="23" class="org.apache.felix.gogo.command.Activator" name="Apache Felix Gogo Command" provider="The Apache Software Foundation"/>
+	<bundle bundleID="24" name="Commons IO" provider="The Apache Software Foundation"/>
+	<bundle bundleID="25" name="iCasa :: device.push.button" provider="ADELE Research Group"/>
+	<bundle bundleID="26" name="Netty/Handler" provider="The Netty Project"/>
+	<bundle bundleID="27" name="iCasa :: device.power" provider="ADELE Research Group"/>
+	<bundle bundleID="28" name="iCasa :: common" provider="ADELE Research Group"/>
+	<bundle bundleID="29" name="iCasa :: simulator.web.instance" provider="ADELE Research Group"/>
+	<bundle bundleID="30" name="iCasa :: access.manager.api" provider="ADELE Research Group"/>
+	<bundle bundleID="31" name="iCasa :: simulator.remote" provider="ADELE Research Group"/>
+	<bundle bundleID="32" name="OW2 Chameleon - json.org JSON Service Implementation" provider="OW2 Chameleon"/>
+	<bundle bundleID="33" name="Guava: Google Core Libraries for Java"/>
+	<bundle bundleID="34" name="ADELE-Common :: autoload.res.processor" provider="ADELE Research Group"/>
+	<bundle bundleID="35" name="iCasa :: device.personal" provider="ADELE Research Group"/>
+	<bundle bundleID="36" name="ADELE-Common :: rose-chameleon-deployer-configurator" provider="ADELE Research Group"/>
+	<bundle bundleID="37" name="iCasa :: access.manager.remote" provider="ADELE Research Group"/>
+	<bundle bundleID="38" name="OW2 Shelbie iPOJO Commands" provider="OW2 Consortium"/>
+	<bundle bundleID="39" name="iCasa :: application.api" provider="ADELE Research Group"/>
+	<bundle bundleID="40" name="OW2 Chameleon - Shared Preferences Service" provider="OW2 Chameleon"/>
+	<bundle bundleID="41" name="Jackson-module-JAXB-annotations" provider="FasterXML"/>
+	<bundle bundleID="42" name="iCasa :: technical.services.api" provider="ADELE Research Group"/>
+	<bundle bundleID="43" name="Stax2 API" provider="fasterml.com"/>
+	<bundle bundleID="44" name="content-manager" provider="Wisdom Framework"/>
+	<bundle bundleID="45" name="iCasa :: frontend.services" provider="ADELE Research Group"/>
+	<bundle bundleID="46" name="wisdom-monitor" provider="Wisdom Framework"/>
+	<bundle bundleID="47" name="Netty/Common" provider="The Netty Project"/>
+	<bundle bundleID="48" name="Graphite Integration for Metrics"/>
+	<bundle bundleID="49" name="wisdom-mailer" provider="Wisdom Framework"/>
+	<bundle bundleID="50" name="thymeleaf-template-engine" provider="Wisdom Framework"/>
+	<bundle bundleID="51" name="OW2 Chameleon - XML-Based Shared Preferences Service Implementation" provider="OW2 Chameleon">
+		<library name="."/>
+		<library name="kxml2-2.3.0.jar"/>
+	</bundle>
+	<bundle bundleID="52" name="iCasa :: device.sound" provider="ADELE Research Group"/>
+	<bundle bundleID="53" name="akquinet Deployment Admin" provider="akquinet A.G."/>
+	<bundle bundleID="54" name="iCasa :: device.dependency.handler" provider="ADELE Research Group"/>
+	<bundle bundleID="55" name="iCasa :: device.manager.api" provider="ADELE Research Group"/>
+	<bundle bundleID="56" name="iCasa :: command.handler" provider="ADELE Research Group"/>
+	<bundle bundleID="57" name="iCasa :: web.resources" provider="ADELE Research Group"/>
+	<bundle bundleID="58" name="OW2 Shelbie :: Core" provider="OW2 Consortium"/>
+	<bundle bundleID="59" name="wisdom-api" provider="Wisdom Framework"/>
+	<bundle bundleID="60" name="OW2 Shelbie :: Startup Console" provider="OW2 Consortium"/>
+	<bundle bundleID="61" name="Netty/Transport/SCTP" provider="The Netty Project"/>
+	<bundle bundleID="62" name="iCasa :: simulator.impl" provider="ADELE Research Group"/>
+	<bundle bundleID="63" name="jackson-databind" provider="FasterXML"/>
+	<bundle bundleID="64" name="application-configuration" provider="Wisdom Framework"/>
+	<bundle bundleID="65" name="Netty/Codec/HTTP" provider="The Netty Project"/>
+	<bundle bundleID="66" name="iCasa :: clock.simulated.impl" provider="ADELE Research Group"/>
+	<bundle bundleID="67" class="org.apache.felix.gogo.runtime.activator.Activator" name="Apache Felix Gogo Runtime" provider="The Apache Software Foundation"/>
+	<bundle bundleID="68" name="OW2 Chameleon - RoSe Core" provider="OW2 Consortium"/>
+	<bundle bundleID="69" name="Metrics Core"/>
+	<bundle bundleID="70" name="Commons Lang" provider="The Apache Software Foundation"/>
+	<bundle bundleID="71" class="org.ow2.util.log.impl.osgi.Activator" name="OW2 Bundles :: Log" provider="OW2 Consortium"/>
+	<bundle bundleID="72" class="org.apache.felix.cm.impl.ConfigurationManager" name="Apache Felix Configuration Admin Service" provider="The Apache Software Foundation"/>
+	<bundle bundleID="73" name="Netty/Codec" provider="The Netty Project"/>
+	<bundle bundleID="74" name="iCasa :: context.remote" provider="ADELE Research Group"/>
+	<bundle bundleID="75" name="crypto" provider="Wisdom Framework"/>
+	<bundle bundleID="76" name="iCasa :: simulator.api" provider="ADELE Research Group"/>
+	<bundle bundleID="77" name="Apache Felix iPOJO White Board Pattern Handler" provider="The Apache Software Foundation"/>
+	<bundle bundleID="78" name="Apache Commons Codec" provider="The Apache Software Foundation"/>
+	<bundle bundleID="79" name="akquinet AutoConf ResourceProcessor" provider="akquinet A.G."/>
+	<bundle bundleID="100" name="Netty/Buffer" provider="The Netty Project"/>
+	<bundle bundleID="101" name="Apache Commons Configuration" provider="The Apache Software Foundation"/>
+	<bundle bundleID="102" name="wisdom-vertx-engine" provider="Wisdom Framework"/>
+	<bundle bundleID="103" name="OW2 Shelbie :: Builtin Commands" provider="OW2 Consortium"/>
+	<bundle bundleID="104" class="org.apache.felix.ipojo.extender.internal.Extender" name="Apache Felix iPOJO" provider="The Apache Software Foundation"/>
+	<bundle bundleID="105" name="Bean Validation API"/>
+	<bundle bundleID="106" name="com.typesafe.akka.osgi"/>
+	<bundle bundleID="80" name="com.typesafe.config"/>
+	<bundle bundleID="107" class="org.apache.felix.prefs.impl.PreferencesManager" name="Apache Felix Preferences Service" provider="The Apache Software Foundation"/>
+	<bundle bundleID="81" name="iCasa :: device.temperature" provider="ADELE Research Group"/>
+	<bundle bundleID="108" name="Apache Felix iPOJO Extender Pattern Handler" provider="The Apache Software Foundation"/>
+	<bundle bundleID="82" name="Netty/Codec/Socks" provider="The Netty Project"/>
+	<bundle bundleID="109" name="OW2 Bundles :: i18n" provider="OW2 Consortium"/>
+	<bundle bundleID="83" name="Jackson-core" provider="FasterXML"/>
+	<bundle bundleID="84" name="iCasa :: gogo.adapter" provider="ADELE Research Group"/>
+	<bundle bundleID="85" name="jaxb-api" provider="Oracle Corporation"/>
+	<bundle bundleID="86" name="iCasa :: application.remote" provider="ADELE Research Group"/>
+	<bundle bundleID="87" name="Guava: Google Core Libraries for Java"/>
+</map>

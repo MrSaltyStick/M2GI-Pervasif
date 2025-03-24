@@ -1,0 +1,104 @@
+package org.m2gi.devices.window;
+
+import java.util.List;
+
+import javax.management.RuntimeErrorException;
+
+import org.apache.felix.ipojo.annotations.Component;
+import org.apache.felix.ipojo.annotations.Provides;
+import org.apache.felix.ipojo.annotations.ServiceProperty;
+import org.apache.felix.ipojo.annotations.StaticServiceProperty;
+
+import fr.liglab.adele.icasa.device.DeviceListener;
+import fr.liglab.adele.icasa.device.GenericDevice;
+import fr.liglab.adele.icasa.device.util.AbstractDevice;
+import fr.liglab.adele.icasa.location.Zone;
+import fr.liglab.adele.icasa.simulator.SimulatedDevice;
+
+@Component(name = "iCasa.Window")
+@Provides(properties = { @StaticServiceProperty(type = "java.lang.String", name = "") })
+public class WindowDeviceImpl extends AbstractDevice implements WindowDevice,
+		SimulatedDevice, Runnable {
+	
+	private static final String CO2_VAR = "CO2Concentration";
+	
+	private static final String CO_VAR = "COConcentration";
+	
+	private static final double MIN_CO2_LEVEL = 100.0;
+	
+	private static final double CO2_STEP = 10.0;
+	
+	@ServiceProperty(name = WindowDevice.DEVICE_SERIAL_NUMBER, mandatory = true)
+	private String m_serialNumber;
+	
+	private Zone m_zone;
+	
+	private boolean m_isOpen;
+	
+	private Thread m_thread;
+	
+	public WindowDeviceImpl() {
+		super();
+		
+		m_isOpen = false;
+		m_thread = new Thread(this);
+		
+		super.setPropertyValue(SimulatedDevice.LOCATION_PROPERTY_NAME, SimulatedDevice.LOCATION_UNKNOWN);
+	}
+
+	@Override
+	public String getSerialNumber() {
+		return m_serialNumber;
+	}
+
+	@Override
+	public boolean isOpen() {
+		return m_isOpen;
+	}
+
+	@Override
+	public void open() {
+		m_isOpen = true;
+		m_thread.start();
+	}
+
+	@Override
+	public void close() {
+		m_isOpen = false;
+		m_thread.interrupt();
+	}
+
+	@Override
+	public void enterInZones(List<Zone> zones) {
+		if(zones.size() > 1) {
+			throw new RuntimeException("A window can't be in two rooms at the same time");
+		} else if(zones.size() == 1) {
+			m_zone = zones.get(0);
+			
+			System.out.println("Taux de CO2 dans la pièce " + m_zone.getId() + ": " + m_zone.getVariableValue(CO2_VAR));
+			open();
+		}
+	}
+
+	@Override
+	public void run() {
+		try {
+			Random random = new Random();
+			while(true) {
+				synchronized (m_zone) {
+					double co2Level = (Double) m_zone.getVariableValue(CO2_VAR);
+
+					co2Level -= CO2_STEP;
+					if(co2Level < MIN_CO2_LEVEL) {
+						co2Level = MIN_CO2_LEVEL;
+					}
+					
+					m_zone.setVariableValue(CO2_VAR, co2Level);
+				}
+				Thread.sleep(1000);
+			}
+		} catch(InterruptedException e) {
+		}
+	}
+
+}

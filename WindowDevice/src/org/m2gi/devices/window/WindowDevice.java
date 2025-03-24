@@ -1,0 +1,12 @@
+package org.m2gi.devices.window;
+
+import fr.liglab.adele.icasa.device.GenericDevice;
+
+public interface WindowDevice extends GenericDevice {
+		
+	boolean isOpen();
+	
+	void open();
+	
+	void close();
+}
