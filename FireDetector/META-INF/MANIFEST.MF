@@ -50,20 +50,23 @@ iPOJO-Components: instance { $component="FireDetector" $name="FireDete
  e="true" $specification="fr.liglab.adele.icasa.device.temperature.The
  rmometer" $field="thermometers" callback { $method="bindThermometer" 
  $type="bind" }callback { $method="unbindThermometer" $type="unbind" }
- }properties { property { $field="detectionDelay" $name="detectionDela
- y" $type="java.lang.Long" $value="5000" }property { $field="temperatu
- reThreshold" $name="temperatureThreshold" $type="java.lang.Double" $v
- alue="323.15" }}manipulation { $classname="org.m2gi.fire.FireDetector
- Impl" interface { $name="java.lang.Runnable" }field { $name="detectio
- nDelay" $type="java.lang.Long" }field { $name="temperatureThreshold" 
- $type="java.lang.Double" }field { $name="thermometers" $type="fr.ligl
- ab.adele.icasa.device.temperature.Thermometer[]" }field { $name="thre
- ad" $type="java.lang.Thread" }method { $name="bindThermometer" $argum
+ }requires { $specification="fr.liglab.adele.icasa.service.preferences
+ .Preferences" $field="preferences" }properties { property { $field="d
+ etectionDelay" $name="detectionDelay" $type="java.lang.Long" $value="
+ 5000" }property { $field="temperatureThreshold" $name="temperatureThr
+ eshold" $type="java.lang.Double" $value="41.5" }}manipulation { $clas
+ sname="org.m2gi.fire.FireDetectorImpl" interface { $name="java.lang.R
+ unnable" }field { $name="detectionDelay" $type="java.lang.Long" }fiel
+ d { $name="preferences" $type="fr.liglab.adele.icasa.service.preferen
+ ces.Preferences" }field { $name="temperatureThreshold" $type="java.la
+ ng.Double" }field { $name="thermometers" $type="fr.liglab.adele.icasa
+ .device.temperature.Thermometer[]" }field { $name="thread" $type="jav
+ a.lang.Thread" }method { $name="bindThermometer" $arguments="{fr.ligl
+ ab.adele.icasa.device.temperature.Thermometer,java.util.Map}" $names=
+ "{thermometer,properties}" }method { $name="unbindThermometer" $argum
  ents="{fr.liglab.adele.icasa.device.temperature.Thermometer,java.util
- .Map}" $names="{thermometer,properties}" }method { $name="unbindTherm
- ometer" $arguments="{fr.liglab.adele.icasa.device.temperature.Thermom
- eter,java.util.Map}" $names="{thermometer,properties}" }method { $nam
- e="stop" }method { $name="start" }method { $name="run" }method { $nam
- e="hasFireStarted" $return="boolean" $arguments="{java.lang.Double[],
- double}" $names="{zoneOldVals,currentTemperature}" }}}
+ .Map}" $names="{thermometer,properties}" }method { $name="stop" }meth
+ od { $name="start" }method { $name="run" }method { $name="hasFireStar
+ ted" $return="boolean" $arguments="{java.lang.Double[],double}" $name
+ s="{zoneOldVals,currentTemperature}" }}}
 

@@ -9,8 +9,9 @@
     </requires>
     <properties>
       <property field="detectionDelay" name="detectionDelay" type="java.lang.Long" value="5000"/>
-      <property field="temperatureThreshold" name="temperatureThreshold" type="java.lang.Double" value="323.15"/>
+      <property field="temperatureThreshold" name="temperatureThreshold" type="java.lang.Double" value="41.5"/>
     </properties>
+    <requires specification="fr.liglab.adele.icasa.service.preferences.Preferences" field="preferences"/>
   </component>
   <instance component="FireDetector" name="FireDetector"/>
 </ipojo>
