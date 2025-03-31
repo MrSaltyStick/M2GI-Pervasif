@@ -3,6 +3,7 @@ package org.m2gi.gaz;
 
 import fr.liglab.adele.icasa.device.gasSensor.CarbonMonoxydeSensor;
 import org.m2gi.devices.window.WindowDevice;
+import org.m2gi.fire.FireDetector;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +15,8 @@ public class GazDetectorImpl implements Runnable {
 	private CarbonMonoxydeSensor[] coSensors;
 	/** Field for roomWindows dependency */
 	private WindowDevice[] roomWindows;
+	/** Field for fireDetector dependency */
+	private FireDetector fireDetector;
 	/** Injected field for the component property coThresholdMax */
 	private Double coThresholdMax;
 	/** Injected field for the component property detectionDelay */
@@ -37,6 +40,10 @@ public class GazDetectorImpl implements Runnable {
 			while(true) {
 				
 				for(CarbonMonoxydeSensor sensor: coSensors) {
+					if(fireDetector.hasFireStarted()) {
+						break;
+					}
+					
 					String zone = (String) sensor.getPropertyValue("Location");
 					
 					if(!oldValues.containsKey(zone)) {
