@@ -5,6 +5,7 @@ import fr.liglab.adele.icasa.device.temperature.Thermometer;
 import java.util.HashMap;
 import java.util.Map;
 import fr.liglab.adele.icasa.service.preferences.Preferences;
+import fr.liglab.adele.icasa.device.presence.PresenceSensor;
 
 public class FireDetectorImpl implements Runnable {
 
@@ -23,6 +24,9 @@ public class FireDetectorImpl implements Runnable {
 
 	/** Field for preferences dependency */
 	private Preferences preferences;
+
+	/** Field for presenceSensors dependency */
+	private PresenceSensor[] presenceSensors;
 	
 	public FireDetectorImpl() {
 		super();
@@ -65,7 +69,7 @@ public class FireDetectorImpl implements Runnable {
 					double celsiusTemperature = thermometer.getTemperature() - 272.15;
 					Double zoneOldVals[] = oldValues.get(zone);					
 					if(hasFireStarted(zoneOldVals, celsiusTemperature)) {
-						System.out.println("Ho fada y a un incendie dans la pièce " + zone);
+						fireStarted(zone);
 					}
 					
 					for(int i = zoneOldVals.length - 1; i > 0; i--) {
@@ -88,6 +92,23 @@ public class FireDetectorImpl implements Runnable {
 			i++;
 		}
 		return i == zoneOldVals.length && currentTemperature > threshold;
+	}
+	
+	private void fireStarted(String location) {
+		System.out.println("ALERT a fire has started in the room " + location);
+		for(PresenceSensor sensor: presenceSensors) {
+			if(sensor.getSensedPresence()) {
+				System.out.println("There is at least one person in the room " + sensor.getPropertyValue("Location"));
+			}
+		}
+	}
+
+	/** Bind Method for presenceSensors dependency */
+	public void bindPresenceSensor(PresenceSensor presenceSensor, Map properties){
+	}
+
+	/** Unbind Method for presenceSensors dependency */
+	public void unbindPresenceSensor(PresenceSensor presenceSensor, Map properties){
 	}
 	
 }
