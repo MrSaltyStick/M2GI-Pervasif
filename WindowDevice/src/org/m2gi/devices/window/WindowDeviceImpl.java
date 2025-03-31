@@ -21,13 +21,7 @@ import fr.liglab.adele.icasa.simulator.SimulatedDevice;
 public class WindowDeviceImpl extends AbstractDevice implements WindowDevice,
 		SimulatedDevice, Runnable {
 	
-	private static final String CO2_VAR = "CO2Concentration";
-	
 	private static final String CO_VAR = "COConcentration";
-	
-	private static final double MIN_CO2_LEVEL = 100.0;
-	
-	private static final double CO2_STEP = 10.0;
 	
 	private static final double MIN_CO_LEVEL = 0.5;
 	
@@ -94,20 +88,11 @@ public class WindowDeviceImpl extends AbstractDevice implements WindowDevice,
 			Random random = new Random();
 			while(true) {
 				synchronized (m_zone) {
-					double co2Level = (Double) m_zone.getVariableValue(CO2_VAR);
 					double coLevel = (Double) m_zone.getVariableValue(CO_VAR);
-
-					co2Level -= CO2_STEP;
-					if(co2Level < MIN_CO2_LEVEL) {
-						co2Level = MIN_CO2_LEVEL;
-					}
-					
 					coLevel -= CO_STEP;
 					if(coLevel < MIN_CO_LEVEL) {
 						coLevel = MIN_CO_LEVEL;
 					}
-					
-					m_zone.setVariableValue(CO2_VAR, co2Level);
 					m_zone.setVariableValue(CO_VAR, coLevel);
 				}
 				Thread.sleep((random.nextLong() % 50) + 1000);

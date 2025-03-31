@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipojo xmlns="org.apache.felix.ipojo">
+  <component classname="org.m2gi.gaz.GazDetectorImpl" name="GazDetector">
+    <requires aggregate="true" specification="fr.liglab.adele.icasa.device.gasSensor.CarbonMonoxydeSensor" field="coSensors">
+      <callback method="bindCoSensor" type="bind"/>
+      <callback method="unbindCoSensor" type="unbind"/>
+    </requires>
+    <requires aggregate="true" specification="org.m2gi.devices.window.WindowDevice" field="roomWindows">
+      <callback method="bindRoomWindow" type="bind"/>
+      <callback method="unbindRoomWindow" type="unbind"/>
+    </requires>
+    <callback method="start" transition="validate"/>
+    <callback method="stop" transition="invalidate"/>
+    <properties>
+      <property field="detectionDelay" name="detectionDelay" type="java.lang.Long" value="5000"/>
+      <property field="coThresholdMax" name="coThresholdMax" type="java.lang.Double" value="120.0"/>
+      <property field="coThresholdMin" name="coThresholdMin" type="java.lang.Double" value="50.0"/>
+    </properties>
+  </component>
+  <instance component="GazDetector" name="GazDetector">
+    <property name="detectionDelay" value="2500"/>
+  </instance>
+</ipojo>
