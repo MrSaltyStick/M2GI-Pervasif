@@ -12,11 +12,10 @@
       <property field="temperatureThreshold" name="temperatureThreshold" type="java.lang.Double" value="41.5"/>
     </properties>
     <requires specification="fr.liglab.adele.icasa.service.preferences.Preferences" field="preferences"/>
-    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.presence.PresenceSensor" field="presenceSensors">
+    <requires aggregate="true" specification="fr.liglab.adele.icasa.device.presence.PresenceSensor" field="presenceSensors">
       <callback method="bindPresenceSensor" type="bind"/>
       <callback method="unbindPresenceSensor" type="unbind"/>
     </requires>
-    <provides specifications="org.m2gi.fire.FireDetector"/>
   </component>
   <instance component="FireDetector" name="FireDetector"/>
 </ipojo>

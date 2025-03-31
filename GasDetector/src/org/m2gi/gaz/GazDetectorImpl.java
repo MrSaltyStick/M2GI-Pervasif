@@ -2,8 +2,8 @@ package org.m2gi.gaz;
 
 
 import fr.liglab.adele.icasa.device.gasSensor.CarbonMonoxydeSensor;
+
 import org.m2gi.devices.window.WindowDevice;
-import org.m2gi.fire.FireDetector;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,8 +15,6 @@ public class GazDetectorImpl implements Runnable {
 	private CarbonMonoxydeSensor[] coSensors;
 	/** Field for roomWindows dependency */
 	private WindowDevice[] roomWindows;
-	/** Field for fireDetector dependency */
-	private FireDetector fireDetector;
 	/** Injected field for the component property coThresholdMax */
 	private Double coThresholdMax;
 	/** Injected field for the component property detectionDelay */
@@ -34,17 +32,11 @@ public class GazDetectorImpl implements Runnable {
 			Thread.sleep(detectionDelay);
 			HashMap<String, Double[]> oldValues = new HashMap<String, Double[]>();
 			HashMap<String, Boolean> windowsOpened = new HashMap<String, Boolean>();
-			System.out.println("Nb detectors: " + coSensors.length);
-			System.out.println("Nb windows: " + roomWindows.length);
-			System.out.println("Max: " + coThresholdMax);
 			while(true) {
-				
+				System.out.println("======== Gas detector report ========");
 				for(CarbonMonoxydeSensor sensor: coSensors) {
-					if(fireDetector.hasFireStarted()) {
-						break;
-					}
-					
 					String zone = (String) sensor.getPropertyValue("Location");
+					System.out.println(zone.toUpperCase());
 					
 					if(!oldValues.containsKey(zone)) {
 						Double arr[] = {0.0, 0.0, 0.0};
@@ -60,22 +52,27 @@ public class GazDetectorImpl implements Runnable {
 					}
 
 					Double zoneOldVals[] = oldValues.get(zone);
-					System.out.println(zone + ": " + currentValue);
+					System.out.print("   Last temperatures: [" + currentValue);
+					for(int i = 0; i < zoneOldVals.length; i++) {
+						System.out.print(", " + zoneOldVals[i]);
+					}
+					System.out.println("]");
+					
 					if(!windowsOpened.get(zone) && shouldOpenWindowInRoom(zoneOldVals, currentValue)) {
 						windowsOpened.put(zone, true);
-						System.out.println("Opening windows in the room " + zone);
 						openWindowsInRoom(zone);
 					} else if(windowsOpened.get(zone) && shouldCloseWindowInRoom(zoneOldVals, currentValue)) {
 						windowsOpened.put(zone, false);
-						System.out.println("Closing windows in the room " + zone);
 						closeWindowsInRoom(zone);
 					}
+					System.out.println("   Windows opened: " + windowsOpened.get(zone));
 					
 					for(int i = zoneOldVals.length - 1; i > 0; i--) {
 						zoneOldVals[i] = zoneOldVals[i - 1];
 					}
 					zoneOldVals[0] = currentValue;
 					oldValues.put(zone, zoneOldVals);
+					System.out.println();
 				}
 				Thread.sleep(detectionDelay);
 			}
@@ -85,23 +82,28 @@ public class GazDetectorImpl implements Runnable {
 
 	/** Bind Method for coSensors dependency */
 	public void bindCoSensor(CarbonMonoxydeSensor carbonMonoxydeSensor, Map properties){
+		System.out.println("Binding the COSensor device " + carbonMonoxydeSensor.getSerialNumber() + " to the gas detector");
 	}
 
 	/** Unbind Method for coSensors dependency */
 	public void unbindCoSensor(CarbonMonoxydeSensor carbonMonoxydeSensor, Map properties){
+		System.out.println("Unbinding the COSensor device " + carbonMonoxydeSensor.getSerialNumber() + "from the gas detector");
 	}
 
 	/** Bind Method for roomWindows dependency */
 	public void bindRoomWindow(WindowDevice windowDevice, Map properties){
+		System.out.println("Binding the window device " + windowDevice.getSerialNumber() + " to the gas detector");
 	}
 
 	/** Unbind Method for roomWindows dependency */
 	public void unbindRoomWindow(WindowDevice windowDevice, Map properties){
+		System.out.println("Unbinding the window device " + windowDevice.getSerialNumber() + " from the gas detector");
 	}
 
 	/** Component Lifecycle Method */
 	public void stop(){
 		thread.interrupt();
+		System.out.println("Gas detector stopped");
 	}
 
 	/** Component Lifecycle Method */

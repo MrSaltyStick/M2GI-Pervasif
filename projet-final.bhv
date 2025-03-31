@@ -7,33 +7,36 @@
 	<modify-zone-variable zoneId="kitchen" variable="CO2Concentration" value="5505.0"/>	
 	
 	<create-device id="Kit-T1" type="iCasa.CustomThermometer" />
-	<create-device id="Kit-Win1" type="iCasa.Window" />
-	<create-device id="Kit-Win2" type="iCasa.Window" />
+	<create-device id="Kit-P1" type="iCasa.PresenceSensor" />
 	<move-device-zone deviceId="Kit-T1" zoneId="kitchen" />
-	<move-device-zone deviceId="Kit-Win1" zoneId="kitchen" />
-	<move-device-zone deviceId="Kit-Win2" zoneId="kitchen" />
+	<move-device-zone deviceId="Kit-P1" zoneId="kitchen" />
 
 	<create-zone id="livingroom" leftX="410" topY="28" X-Length="245" Y-Length="350" />	 
 	<add-zone-variable zoneId="livingroom" variable="RealTemperature" />
 	<modify-zone-variable zoneId="livingroom" variable="RealTemperature" value="294.0"/>
 	
 	<create-device id="Liv-T1" type="iCasa.CustomThermometer" />
+	<create-device id="Liv-P1" type="iCasa.PresenceSensor" />
 	<move-device-zone deviceId="Liv-T1" zoneId="livingroom" />
+	<move-device-zone deviceId="Liv-P1" zoneId="livingroom" />
 	
 	<create-zone id="bedroom"  leftX="55" topY="370" X-Length="259" Y-Length="210" />	 
 	<add-zone-variable zoneId="bedroom" variable="RealTemperature" />
 	<modify-zone-variable zoneId="bedroom" variable="RealTemperature" value="294.0"/>
-	=
 	
 	<create-device id="Bed-T1" type="iCasa.CustomThermometer" />
+	<create-device id="Bed-P1" type="iCasa.PresenceSensor" />
 	<move-device-zone deviceId="Bed-T1" zoneId="bedroom" />
+	<move-device-zone deviceId="Bed-P1" zoneId="bedroom" />
 	
 	<create-zone id="bathroom"  leftX="55" topY="20" X-Length="260" Y-Length="350" />	 
 	<add-zone-variable zoneId="bathroom" variable="RealTemperature" />
 	<modify-zone-variable zoneId="bathroom" variable="RealTemperature" value="294.0"/>
 	
 	<create-device id="Bath-T1" type="iCasa.CustomThermometer" />
+	<create-device id="Bath-P1" type="iCasa.PresenceSensor" />
 	<move-device-zone deviceId="Bath-T1" zoneId="bathroom" />
+	<move-device-zone deviceId="Bath-P1" zoneId="bathroom" />
 	
 </behavior>
 
