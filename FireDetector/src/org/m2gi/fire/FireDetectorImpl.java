@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import fr.liglab.adele.icasa.service.preferences.Preferences;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
+import org.m2gi.commands.*;
 
 public class FireDetectorImpl implements Runnable {
 
@@ -15,6 +16,8 @@ public class FireDetectorImpl implements Runnable {
 	
 	/** Field for thermometers dependency */
 	private Thermometer[] thermometers;
+	
+	private Commands CommandManager;
 
 	/** Injected field for the component property detectionDelay */
 	private Long detectionDelay;
@@ -51,9 +54,11 @@ public class FireDetectorImpl implements Runnable {
 
 	/** Component Lifecycle Method */
 	public void start() {
+		System.out.println("Starting_________________________________________________HEY");
 		thread = new Thread(this);
 		thread.start();
 		System.out.println("Fire detector started");
+		
 	}
 
 	@Override
