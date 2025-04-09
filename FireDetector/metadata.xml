@@ -16,7 +16,7 @@
       <callback method="bindPresenceSensor" type="bind"/>
       <callback method="unbindPresenceSensor" type="unbind"/>
     </requires>
-    <requires specification="org.m2gi.commands.Commands" field="CommandManager"/>
+    <provides specifications="org.m2gi.fire.FireDetector"/>
   </component>
   <instance component="FireDetector" name="FireDetector"/>
 </ipojo>

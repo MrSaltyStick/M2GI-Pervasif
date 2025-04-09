@@ -7,6 +7,8 @@ import org.m2gi.devices.window.WindowDevice;
 
 import java.util.HashMap;
 import java.util.Map;
+import fr.liglab.adele.icasa.ContextManager;
+import org.m2gi.fire.FireDetector;
 public class GazDetectorImpl implements Runnable {
 
 	private Thread thread;
@@ -22,6 +24,12 @@ public class GazDetectorImpl implements Runnable {
 	/** Injected field for the component property coThresholdMin */
 	private Double coThresholdMin;
 
+	/** Field for context dependency */
+	private ContextManager context;
+
+	/** Field for fireDetector dependency */
+	private FireDetector fireDetector;
+
 	public GazDetectorImpl() {
 		super();
 	}
@@ -33,10 +41,10 @@ public class GazDetectorImpl implements Runnable {
 			HashMap<String, Double[]> oldValues = new HashMap<String, Double[]>();
 			HashMap<String, Boolean> windowsOpened = new HashMap<String, Boolean>();
 			while(true) {
-				System.out.println("======== Gas detector report ========");
+//				System.out.println("======== Gas detector report ========");
 				for(CarbonMonoxydeSensor sensor: coSensors) {
 					String zone = (String) sensor.getPropertyValue("Location");
-					System.out.println(zone.toUpperCase());
+//					System.out.println(zone.toUpperCase());
 					
 					if(!oldValues.containsKey(zone)) {
 						Double arr[] = {0.0, 0.0, 0.0};
@@ -52,27 +60,29 @@ public class GazDetectorImpl implements Runnable {
 					}
 
 					Double zoneOldVals[] = oldValues.get(zone);
-					System.out.print("   Last temperatures: [" + currentValue);
-					for(int i = 0; i < zoneOldVals.length; i++) {
-						System.out.print(", " + zoneOldVals[i]);
-					}
-					System.out.println("]");
+//					System.out.print("   Last temperatures: [" + currentValue);
+//					for(int i = 0; i < zoneOldVals.length; i++) {
+//						System.out.print(", " + zoneOldVals[i]);
+//					}
+//					System.out.println("]");
 					
-					if(!windowsOpened.get(zone) && shouldOpenWindowInRoom(zoneOldVals, currentValue)) {
+					if(!fireDetector.fireStarted() && !windowsOpened.get(zone) && shouldOpenWindowInRoom(zoneOldVals, currentValue)) {
+						System.out.println("Opening the windows in the zone " + zone);
 						windowsOpened.put(zone, true);
 						openWindowsInRoom(zone);
 					} else if(windowsOpened.get(zone) && shouldCloseWindowInRoom(zoneOldVals, currentValue)) {
+						System.out.println("Closing the windows in the zone " + zone);
 						windowsOpened.put(zone, false);
 						closeWindowsInRoom(zone);
 					}
-					System.out.println("   Windows opened: " + windowsOpened.get(zone));
+//					System.out.println("   Windows opened: " + windowsOpened.get(zone));
 					
 					for(int i = zoneOldVals.length - 1; i > 0; i--) {
 						zoneOldVals[i] = zoneOldVals[i - 1];
 					}
 					zoneOldVals[0] = currentValue;
 					oldValues.put(zone, zoneOldVals);
-					System.out.println();
+//					System.out.println();
 				}
 				Thread.sleep(detectionDelay);
 			}
@@ -144,5 +154,9 @@ public class GazDetectorImpl implements Runnable {
 			}
 		}
 	}
+	
+	
+	
+	
 
 }

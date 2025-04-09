@@ -6,9 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import fr.liglab.adele.icasa.service.preferences.Preferences;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
-import org.m2gi.commands.*;
 
-public class FireDetectorImpl implements Runnable {
+public class FireDetectorImpl implements Runnable, FireDetector {
 
 	private static final String OUTDOOR_TEMPERATURE = "OUTDOOR_TEMPERATURE";
 	
@@ -16,8 +15,6 @@ public class FireDetectorImpl implements Runnable {
 	
 	/** Field for thermometers dependency */
 	private Thermometer[] thermometers;
-	
-	private Commands CommandManager;
 
 	/** Injected field for the component property detectionDelay */
 	private Long detectionDelay;
@@ -31,9 +28,16 @@ public class FireDetectorImpl implements Runnable {
 	/** Field for presenceSensors dependency */
 	private PresenceSensor[] presenceSensors;
 	
+	private boolean fireStarted;
+	
 	public FireDetectorImpl() {
 		super();
-		preferences.setGlobalPropertyValue(OUTDOOR_TEMPERATURE, 50.5f);
+		fireStarted = false;
+	}
+	
+	@Override
+	public boolean fireStarted() {
+		return fireStarted;
 	}
 
 	/** Bind Method for thermometers dependency */
@@ -54,11 +58,14 @@ public class FireDetectorImpl implements Runnable {
 
 	/** Component Lifecycle Method */
 	public void start() {
-		System.out.println("Starting_________________________________________________HEY");
 		thread = new Thread(this);
 		thread.start();
-		System.out.println("Fire detector started");
 		
+		float outdoorTemperature = 29.5f;
+		preferences.setGlobalPropertyValue("OUTDOOR_TEMPERATURE", outdoorTemperature);
+		System.out.println("Outdoor temperature set to " + outdoorTemperature + " celsius degrees");
+		
+		System.out.println("Fire detector started");
 	}
 
 	@Override
@@ -67,22 +74,22 @@ public class FireDetectorImpl implements Runnable {
 			HashMap<String, Double[]> oldValues = new HashMap<String, Double[]>();
 			while(true) {
 				Thread.sleep(detectionDelay);
-				System.out.println("======== Fire detector report ========");
+//				System.out.println("======== Fire detector report ========");
 				
 				for(Thermometer thermometer: thermometers) {
 					String zone = (String) thermometer.getPropertyValue("Location");
-					System.out.println(zone.toUpperCase());
+//					System.out.println(zone.toUpperCase());
 					if(!oldValues.containsKey(zone)) {
 						oldValues.put(zone, new Double[]{ 0.0, 0.0, 0.0 });
 					}
 					double celsiusTemperature = thermometer.getTemperature() - 272.15;
 					Double zoneOldVals[] = oldValues.get(zone);
 					
-					System.out.print("   Last temperatures: [" + celsiusTemperature);
-					for(int i = 0; i < zoneOldVals.length; i++) {
-						System.out.print(", " + zoneOldVals[i]);
-					}
-					System.out.println("]");
+//					System.out.print("   Last temperatures: [" + celsiusTemperature);
+//					for(int i = 0; i < zoneOldVals.length; i++) {
+//						System.out.print(", " + zoneOldVals[i]);
+//					}
+//					System.out.println("]");
 										
 					if(hasFireStarted(zoneOldVals, celsiusTemperature)) {
 						fireStarted(zone);
@@ -93,7 +100,7 @@ public class FireDetectorImpl implements Runnable {
 					}
 					zoneOldVals[0] = celsiusTemperature;
 					oldValues.put(zone, zoneOldVals);
-					System.out.println();
+//					System.out.println();
 				}
 			}
 		} catch(InterruptedException e) {
@@ -101,7 +108,7 @@ public class FireDetectorImpl implements Runnable {
 	}
 	
 	private boolean hasFireStarted(Double[] zoneOldVals, double currentTemperature) {
-		float outdoorTemperature = (Float) preferences.getGlobalPropertyValue(OUTDOOR_TEMPERATURE);
+		Float outdoorTemperature = (Float) preferences.getGlobalPropertyValue(OUTDOOR_TEMPERATURE);
 		double threshold = Math.max(temperatureThreshold, outdoorTemperature * 1.2);
 		
 		int i = 0;

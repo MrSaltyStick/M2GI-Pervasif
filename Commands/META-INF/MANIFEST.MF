@@ -40,26 +40,40 @@ Import-Package: fr.liglab.adele.icasa, fr.liglab.adele.icasa.access, f
  util, fr.liglab.adele.icasa.simulator.script.executor, fr.liglab.adel
  e.icasa.simulator.services, org.apache.felix.ipojo;version="[1.12.1,2
  .0.0)", org.apache.felix.ipojo.architecture;version="[1.12.1,2.0.0)",
-  org.json, org.osgi.service.cm;version=1.2, org.osgi.service.log;vers
- ion=1.3
-iPOJO-Components: instance { $name="CommandManager" $component="org.m2
- gi.commands.CommandManagerImpl" }component { $name="org.m2gi.commands
- .CommandManagerImpl" $classname="org.m2gi.commands.CommandManagerImpl
- " fr.liglab.adele.icasa.command.handler:commandprovider { $namespace=
- "CommandManager" fr.liglab.adele.icasa.command.handler:command { $met
- hod="CreateFireFlat" }fr.liglab.adele.icasa.command.handler:command {
-  $method="CreateFireLog" }fr.liglab.adele.icasa.command.handler:comma
- nd { $method="CreateGasLeak" }fr.liglab.adele.icasa.command.handler:c
- ommand { $method="SetHeat" }fr.liglab.adele.icasa.command.handler:com
- mand { $method="SetCo2" }fr.liglab.adele.icasa.command.handler:comman
- d { $method="SetCo" }}manipulation { $classname="org.m2gi.commands.Co
- mmandManagerImpl" interface { $name="org.m2gi.commands.Commands" }fie
- ld { $name="preferences" $type="fr.liglab.adele.icasa.service.prefere
- nces.Preferences" }method { $name="CreateFireFlat" $arguments="{java.
- lang.String}" $names="{room}" }method { $name="CreateFireLog" $argume
- nts="{java.lang.String}" $names="{room}" }method { $name="CreateGasLe
- ak" $arguments="{java.lang.String}" $names="{room}" }method { $name="
- SetHeat" $arguments="{float}" $names="{heat}" }method { $name="SetCo2
- " $arguments="{float}" $names="{gas}" }method { $name="SetCo" $argume
- nts="{float}" $names="{gas}" }}}
+  org.json, org.osgi.framework;version=1.8.0, org.osgi.service.cm;vers
+ ion=1.2, org.osgi.service.log;version=1.3
+iPOJO-Components: instance { $name="org.m2gi.commands.CommandManager" 
+ $component="org.m2gi.commands.CommandManagerImpl" }component { $name=
+ "org.m2gi.commands.CommandManagerImpl" $classname="org.m2gi.commands.
+ CommandManagerImpl" fr.liglab.adele.icasa.command.handler:commandprov
+ ider { $namespace="org.m2gi" fr.liglab.adele.icasa.command.handler:co
+ mmand { $method="startFire" }fr.liglab.adele.icasa.command.handler:co
+ mmand { $method="stopFire" }fr.liglab.adele.icasa.command.handler:com
+ mand { $method="startGasLeak" }fr.liglab.adele.icasa.command.handler:
+ command { $method="stopGasLeak" }fr.liglab.adele.icasa.command.handle
+ r:command { $method="setOutdoorTemperature" }fr.liglab.adele.icasa.co
+ mmand.handler:command { $method="setZoneTemperature" }fr.liglab.adele
+ .icasa.command.handler:command { $method="setCOLevelInZone" }fr.ligla
+ b.adele.icasa.command.handler:command { $method="setCO2LevelInZone" }
+ }requires { $field="preferences" }requires { $field="contextManager" 
+ }manipulation { $classname="org.m2gi.commands.CommandManagerImpl" fie
+ ld { $name="contextManager" $type="fr.liglab.adele.icasa.ContextManag
+ er" }field { $name="gasLeakThreads" $type="java.util.HashMap" }field 
+ { $name="preferences" $type="fr.liglab.adele.icasa.service.preference
+ s.Preferences" }method { $name="startFire" $arguments="{java.lang.Str
+ ing}" $names="{zoneID}" }method { $name="stopFire" $arguments="{java.
+ lang.String}" $names="{zoneID}" }method { $name="startGasLeak" $argum
+ ents="{java.lang.String}" $names="{zoneID}" }method { $name="stopGasL
+ eak" $arguments="{java.lang.String}" $names="{zoneID}" }method { $nam
+ e="setOutdoorTemperature" $arguments="{java.lang.String}" $names="{te
+ mperature}" }method { $name="setZoneTemperature" $arguments="{java.la
+ ng.String,java.lang.String}" $names="{zoneID,temperature}" }method { 
+ $name="setCOLevelInZone" $arguments="{java.lang.String,java.lang.Stri
+ ng}" $names="{zoneID,coLevel}" }method { $name="setCO2LevelInZone" $a
+ rguments="{java.lang.String,java.lang.String}" $names="{zoneID,co2Lev
+ el}" }method { $name="getZoneByID" $return="fr.liglab.adele.icasa.loc
+ ation.Zone" $arguments="{java.lang.String}" $names="{zoneID}" }method
+  { $name="setZoneVar" $return="boolean" $arguments="{java.lang.String
+ ,java.lang.String,java.lang.Object}" $names="{zoneID,varName,value}" 
+ }}}
 

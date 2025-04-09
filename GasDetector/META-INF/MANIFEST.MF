@@ -41,8 +41,8 @@ Import-Package: fr.liglab.adele.icasa, fr.liglab.adele.icasa.access, f
  util, fr.liglab.adele.icasa.simulator.script.executor, fr.liglab.adel
  e.icasa.simulator.services, org.apache.felix.ipojo;version="[1.12.1,2
  .0.0)", org.apache.felix.ipojo.architecture;version="[1.12.1,2.0.0)",
-  org.json, org.m2gi.devices.window, org.osgi.service.cm;version=1.2, 
- org.osgi.service.log;version=1.3
+  org.json, org.m2gi.devices.window, org.m2gi.fire, org.osgi.service.c
+ m;version=1.2, org.osgi.service.log;version=1.3
 iPOJO-Components: instance { $component="GazDetector" $name="GazDetect
  or" property { $name="detectionDelay" $value="2500" }}component { $cl
  assname="org.m2gi.gaz.GazDetectorImpl" $name="GazDetector" requires {
@@ -52,34 +52,38 @@ iPOJO-Components: instance { $component="GazDetector" $name="GazDetect
  nbind" }}requires { $aggregate="true" $specification="org.m2gi.device
  s.window.WindowDevice" $field="roomWindows" callback { $method="bindR
  oomWindow" $type="bind" }callback { $method="unbindRoomWindow" $type=
- "unbind" }}callback { $method="start" $transition="validate" }callbac
- k { $method="stop" $transition="invalidate" }properties { property { 
- $field="detectionDelay" $name="detectionDelay" $type="java.lang.Long"
-  $value="5000" }property { $field="coThresholdMax" $name="coThreshold
- Max" $type="java.lang.Double" $value="120.0" }property { $field="coTh
- resholdMin" $name="coThresholdMin" $type="java.lang.Double" $value="5
- 0.0" }}manipulation { $classname="org.m2gi.gaz.GazDetectorImpl" inter
- face { $name="java.lang.Runnable" }field { $name="coSensors" $type="f
- r.liglab.adele.icasa.device.gasSensor.CarbonMonoxydeSensor[]" }field 
- { $name="coThresholdMax" $type="java.lang.Double" }field { $name="coT
- hresholdMin" $type="java.lang.Double" }field { $name="detectionDelay"
-  $type="java.lang.Long" }field { $name="roomWindows" $type="org.m2gi.
- devices.window.WindowDevice[]" }field { $name="thread" $type="java.la
- ng.Thread" }method { $name="run" }method { $name="bindCoSensor" $argu
- ments="{fr.liglab.adele.icasa.device.gasSensor.CarbonMonoxydeSensor,j
- ava.util.Map}" $names="{carbonMonoxydeSensor,properties}" }method { $
- name="unbindCoSensor" $arguments="{fr.liglab.adele.icasa.device.gasSe
- nsor.CarbonMonoxydeSensor,java.util.Map}" $names="{carbonMonoxydeSens
- or,properties}" }method { $name="bindRoomWindow" $arguments="{org.m2g
- i.devices.window.WindowDevice,java.util.Map}" $names="{windowDevice,p
- roperties}" }method { $name="unbindRoomWindow" $arguments="{org.m2gi.
- devices.window.WindowDevice,java.util.Map}" $names="{windowDevice,pro
- perties}" }method { $name="stop" }method { $name="start" }method { $n
- ame="shouldOpenWindowInRoom" $return="boolean" $arguments="{java.lang
- .Double[],java.lang.Double}" $names="{oldValues,currentValue}" }metho
- d { $name="shouldCloseWindowInRoom" $return="boolean" $arguments="{ja
- va.lang.Double[],java.lang.Double}" $names="{oldValues,currentValue}"
-  }method { $name="openWindowsInRoom" $arguments="{java.lang.String}" 
- $names="{location}" }method { $name="closeWindowsInRoom" $arguments="
- {java.lang.String}" $names="{location}" }}}
+ "unbind" }}requires { $specification="fr.liglab.adele.icasa.ContextMa
+ nager" $field="context" }requires { $specification="org.m2gi.fire.Fir
+ eDetector" $field="fireDetector" }callback { $method="start" $transit
+ ion="validate" }callback { $method="stop" $transition="invalidate" }p
+ roperties { property { $field="detectionDelay" $name="detectionDelay"
+  $type="java.lang.Long" $value="5000" }property { $field="coThreshold
+ Max" $name="coThresholdMax" $type="java.lang.Double" $value="120.0" }
+ property { $field="coThresholdMin" $name="coThresholdMin" $type="java
+ .lang.Double" $value="50.0" }}manipulation { $classname="org.m2gi.gaz
+ .GazDetectorImpl" interface { $name="java.lang.Runnable" }field { $na
+ me="coSensors" $type="fr.liglab.adele.icasa.device.gasSensor.CarbonMo
+ noxydeSensor[]" }field { $name="coThresholdMax" $type="java.lang.Doub
+ le" }field { $name="coThresholdMin" $type="java.lang.Double" }field {
+  $name="context" $type="fr.liglab.adele.icasa.ContextManager" }field 
+ { $name="detectionDelay" $type="java.lang.Long" }field { $name="fireD
+ etector" $type="org.m2gi.fire.FireDetector" }field { $name="roomWindo
+ ws" $type="org.m2gi.devices.window.WindowDevice[]" }field { $name="th
+ read" $type="java.lang.Thread" }method { $name="run" }method { $name=
+ "bindCoSensor" $arguments="{fr.liglab.adele.icasa.device.gasSensor.Ca
+ rbonMonoxydeSensor,java.util.Map}" $names="{carbonMonoxydeSensor,prop
+ erties}" }method { $name="unbindCoSensor" $arguments="{fr.liglab.adel
+ e.icasa.device.gasSensor.CarbonMonoxydeSensor,java.util.Map}" $names=
+ "{carbonMonoxydeSensor,properties}" }method { $name="bindRoomWindow" 
+ $arguments="{org.m2gi.devices.window.WindowDevice,java.util.Map}" $na
+ mes="{windowDevice,properties}" }method { $name="unbindRoomWindow" $a
+ rguments="{org.m2gi.devices.window.WindowDevice,java.util.Map}" $name
+ s="{windowDevice,properties}" }method { $name="stop" }method { $name=
+ "start" }method { $name="shouldOpenWindowInRoom" $return="boolean" $a
+ rguments="{java.lang.Double[],java.lang.Double}" $names="{oldValues,c
+ urrentValue}" }method { $name="shouldCloseWindowInRoom" $return="bool
+ ean" $arguments="{java.lang.Double[],java.lang.Double}" $names="{oldV
+ alues,currentValue}" }method { $name="openWindowsInRoom" $arguments="
+ {java.lang.String}" $names="{location}" }method { $name="closeWindows
+ InRoom" $arguments="{java.lang.String}" $names="{location}" }}}
 
