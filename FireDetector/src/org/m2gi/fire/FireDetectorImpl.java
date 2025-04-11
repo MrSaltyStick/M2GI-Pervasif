@@ -4,6 +4,9 @@ import fr.liglab.adele.icasa.device.temperature.Thermometer;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.m2gi.devices.window.WindowDevice;
+
 import fr.liglab.adele.icasa.service.preferences.Preferences;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
 
@@ -27,6 +30,9 @@ public class FireDetectorImpl implements Runnable, FireDetector {
 
 	/** Field for presenceSensors dependency */
 	private PresenceSensor[] presenceSensors;
+
+	/** Field for roomWindows dependency */
+	private WindowDevice[] roomWindows;
 	
 	private boolean fireStarted;
 	
@@ -119,10 +125,22 @@ public class FireDetectorImpl implements Runnable, FireDetector {
 	}
 	
 	private void fireStarted(String location) {
+		System.out.println("===================================================");
 		System.out.println("ALERT a fire has started in the room " + location);
+		closeWindowsInRoom(location);
 		for(PresenceSensor sensor: presenceSensors) {
 			if(sensor.getSensedPresence()) {
 				System.out.println("   There is at least one person in the room " + sensor.getPropertyValue("Location"));
+			}
+		}
+		System.out.println("===================================================");
+	}
+	
+	private void closeWindowsInRoom(String location) {
+		for(WindowDevice window: roomWindows) {
+			if(window.getPropertyValue("Location").equals(location) && window.isOpen()) {
+				System.out.println("Closing the window " + window.getSerialNumber() + " in the zone " + location);
+				window.close();
 			}
 		}
 	}
@@ -136,5 +154,14 @@ public class FireDetectorImpl implements Runnable, FireDetector {
 	public void unbindPresenceSensor(PresenceSensor presenceSensor, Map properties){
 		System.out.println("Unbinding the presence sensor " + presenceSensor.getSerialNumber() + " from the fire detector");
 	}
-	
+
+	/** Bind Method for roomWindows dependency */
+	public void bindRoomWindow(WindowDevice windowDevice, Map properties){
+		System.out.println("Binding the window device " + windowDevice.getSerialNumber() + " to the fire detector");
+	}
+
+	/** Unbind Method for roomWindows dependency */
+	public void unbindRoomWindow(WindowDevice windowDevice, Map properties){
+		System.out.println("Unbinding the window device " + windowDevice.getSerialNumber() + " from the fire detector");
+	}
 }

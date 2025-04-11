@@ -67,11 +67,9 @@ public class GazDetectorImpl implements Runnable {
 //					System.out.println("]");
 					
 					if(!fireDetector.fireStarted() && !windowsOpened.get(zone) && shouldOpenWindowInRoom(zoneOldVals, currentValue)) {
-						System.out.println("Opening the windows in the zone " + zone);
 						windowsOpened.put(zone, true);
 						openWindowsInRoom(zone);
 					} else if(windowsOpened.get(zone) && shouldCloseWindowInRoom(zoneOldVals, currentValue)) {
-						System.out.println("Closing the windows in the zone " + zone);
 						windowsOpened.put(zone, false);
 						closeWindowsInRoom(zone);
 					}
@@ -142,6 +140,7 @@ public class GazDetectorImpl implements Runnable {
 	private void openWindowsInRoom(String location) {
 		for(WindowDevice window: roomWindows) {
 			if(window.getPropertyValue("Location").equals(location)) {
+				System.out.println("Opening the window " + window.getSerialNumber() + " in the zone " + location);
 				window.open();
 			}
 		}
@@ -150,6 +149,7 @@ public class GazDetectorImpl implements Runnable {
 	private void closeWindowsInRoom(String location) {
 		for(WindowDevice window: roomWindows) {
 			if(window.getPropertyValue("Location").equals(location)) {
+				System.out.println("Closing the window " + window.getSerialNumber() + " in the zone " + location);
 				window.close();
 			}
 		}

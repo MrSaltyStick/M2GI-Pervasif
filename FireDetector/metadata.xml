@@ -17,6 +17,10 @@
       <callback method="unbindPresenceSensor" type="unbind"/>
     </requires>
     <provides specifications="org.m2gi.fire.FireDetector"/>
+    <requires aggregate="true" specification="org.m2gi.devices.window.WindowDevice" field="roomWindows">
+      <callback method="bindRoomWindow" type="bind"/>
+      <callback method="unbindRoomWindow" type="unbind"/>
+    </requires>
   </component>
   <instance component="FireDetector" name="FireDetector"/>
 </ipojo>
