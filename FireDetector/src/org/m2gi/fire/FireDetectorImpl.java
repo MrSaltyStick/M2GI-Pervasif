@@ -9,6 +9,7 @@ import org.m2gi.devices.window.WindowDevice;
 
 import fr.liglab.adele.icasa.service.preferences.Preferences;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
+import org.m2gi.gaz.GasDetector;
 
 public class FireDetectorImpl implements Runnable, FireDetector {
 
@@ -35,6 +36,9 @@ public class FireDetectorImpl implements Runnable, FireDetector {
 	private WindowDevice[] roomWindows;
 	
 	private boolean fireStarted;
+
+	/** Field for gasDetector dependency */
+	private GasDetector gasDetector;
 	
 	public FireDetectorImpl() {
 		super();
@@ -97,8 +101,10 @@ public class FireDetectorImpl implements Runnable, FireDetector {
 //					}
 //					System.out.println("]");
 										
-					if(hasFireStarted(zoneOldVals, celsiusTemperature)) {
+					if(hasFireStarted(zone, zoneOldVals, celsiusTemperature)) {
 						fireStarted(zone);
+					} else {
+						gasDetector.fireStopped();
 					}
 					
 					for(int i = zoneOldVals.length - 1; i > 0; i--) {
@@ -113,7 +119,7 @@ public class FireDetectorImpl implements Runnable, FireDetector {
 		}
 	}
 	
-	private boolean hasFireStarted(Double[] zoneOldVals, double currentTemperature) {
+	private boolean hasFireStarted(String zone, Double[] zoneOldVals, double currentTemperature) {
 		Float outdoorTemperature = (Float) preferences.getGlobalPropertyValue(OUTDOOR_TEMPERATURE);
 		double threshold = Math.max(temperatureThreshold, outdoorTemperature * 1.2);
 		
@@ -121,13 +127,14 @@ public class FireDetectorImpl implements Runnable, FireDetector {
 		while(i < zoneOldVals.length && zoneOldVals[i] > threshold) {
 			i++;
 		}
-		return i == zoneOldVals.length && currentTemperature > threshold;
+		return i == zoneOldVals.length && currentTemperature > threshold && gasDetector.tooMuchCO2InZone(zone) && gasDetector.tooMuchCOInZone(zone);
 	}
 	
 	private void fireStarted(String location) {
 		System.out.println("===================================================");
 		System.out.println("ALERT a fire has started in the room " + location);
-		closeWindowsInRoom(location);
+		gasDetector.fireStarted();
+		closeWindows();
 		for(PresenceSensor sensor: presenceSensors) {
 			if(sensor.getSensedPresence()) {
 				System.out.println("   There is at least one person in the room " + sensor.getPropertyValue("Location"));
@@ -136,12 +143,10 @@ public class FireDetectorImpl implements Runnable, FireDetector {
 		System.out.println("===================================================");
 	}
 	
-	private void closeWindowsInRoom(String location) {
+	private void closeWindows() {
+		System.out.println("Closing all the windows to prevent airstream");
 		for(WindowDevice window: roomWindows) {
-			if(window.getPropertyValue("Location").equals(location) && window.isOpen()) {
-				System.out.println("Closing the window " + window.getSerialNumber() + " in the zone " + location);
-				window.close();
-			}
+			window.close();
 		}
 	}
 

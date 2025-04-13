@@ -21,6 +21,7 @@
       <callback method="bindRoomWindow" type="bind"/>
       <callback method="unbindRoomWindow" type="unbind"/>
     </requires>
+    <requires specification="org.m2gi.gaz.GasDetector" field="gasDetector"/>
   </component>
   <instance component="FireDetector" name="FireDetector"/>
 </ipojo>

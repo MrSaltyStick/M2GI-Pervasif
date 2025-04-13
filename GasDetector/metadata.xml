@@ -15,9 +15,14 @@
       <property field="detectionDelay" name="detectionDelay" type="java.lang.Long" value="5000"/>
       <property field="coThresholdMax" name="coThresholdMax" type="java.lang.Double" value="120.0"/>
       <property field="coThresholdMin" name="coThresholdMin" type="java.lang.Double" value="50.0"/>
+      <property field="co2ThresholdMin" name="co2ThresholdMin" type="java.lang.Double" value="400.0"/>
+      <property field="co2ThresholdMax" name="co2ThresholdMax" type="java.lang.Double" value="1000.0"/>
     </properties>
-    <requires specification="fr.liglab.adele.icasa.ContextManager" field="context"/>
-    <requires specification="org.m2gi.fire.FireDetector" field="fireDetector"/>
+    <requires aggregate="true" specification="fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor" field="co2Sensors">
+      <callback method="bindCO2Sensor" type="bind"/>
+      <callback method="unbindCO2Sensor" type="unbind"/>
+    </requires>
+    <provides specifications="org.m2gi.gaz.GasDetector"/>
   </component>
   <instance component="GazDetector" name="GazDetector">
     <property name="detectionDelay" value="2500"/>

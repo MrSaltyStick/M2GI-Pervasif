@@ -27,6 +27,12 @@ public class WindowDeviceImpl extends AbstractDevice implements WindowDevice,
 	
 	private static final double CO_STEP = 1.0;
 	
+	private static final String CO2_VAR = "CO2Concentration";
+	
+	private static final double MIN_CO2_LEVEL = 250.0;
+	
+	private static final double CO2_STEP = 25.0;
+	
 	@ServiceProperty(name = WindowDevice.DEVICE_SERIAL_NUMBER, mandatory = true)
 	private String m_serialNumber;
 	
@@ -94,6 +100,13 @@ public class WindowDeviceImpl extends AbstractDevice implements WindowDevice,
 						coLevel = MIN_CO_LEVEL;
 					}
 					m_zone.setVariableValue(CO_VAR, coLevel);
+					
+					double co2Level = (Double) m_zone.getVariableValue(CO2_VAR);
+					co2Level -= CO2_STEP;
+					if(co2Level < MIN_CO2_LEVEL) {
+						co2Level = MIN_CO2_LEVEL;
+					}
+					m_zone.setVariableValue(CO2_VAR, co2Level);
 				}
 				Thread.sleep((random.nextLong() % 50) + 1000);
 			}

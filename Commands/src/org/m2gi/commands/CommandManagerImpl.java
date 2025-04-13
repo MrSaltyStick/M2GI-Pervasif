@@ -35,7 +35,7 @@ public class CommandManagerImpl {
 	@Command
 	public void startFire(String zoneID) {		
 		boolean success = setZoneVar(zoneID, "RealTemperature", 150.0 + 272.15);
-		success = success && setZoneVar(zoneID, "CO2Concentration", 1200.0);
+		success = success && setZoneVar(zoneID, "CO2Concentration", 2100.0);
 		success = success && setZoneVar(zoneID, "COConcentration", 160.0);
 		
 		if(success) {

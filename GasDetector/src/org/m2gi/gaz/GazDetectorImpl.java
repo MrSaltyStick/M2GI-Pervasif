@@ -7,80 +7,130 @@ import org.m2gi.devices.window.WindowDevice;
 
 import java.util.HashMap;
 import java.util.Map;
-import fr.liglab.adele.icasa.ContextManager;
-import org.m2gi.fire.FireDetector;
-public class GazDetectorImpl implements Runnable {
+import fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor;
+public class GazDetectorImpl implements GasDetector, Runnable {
 
 	private Thread thread;
 
 	/** Field for coSensors dependency */
 	private CarbonMonoxydeSensor[] coSensors;
+	/** Field for co2Sensors dependency */
+	private CarbonDioxydeSensor[] co2Sensors;
 	/** Field for roomWindows dependency */
 	private WindowDevice[] roomWindows;
+	/** Injected field for the component property coThresholdMin */
+	private Double coThresholdMin;
 	/** Injected field for the component property coThresholdMax */
 	private Double coThresholdMax;
 	/** Injected field for the component property detectionDelay */
 	private Long detectionDelay;
-	/** Injected field for the component property coThresholdMin */
-	private Double coThresholdMin;
+	/** Injected field for the component property co2ThresholdMin */
+	private Double co2ThresholdMin;
+	/** Injected field for the component property co2ThresholdMax */
+	private Double co2ThresholdMax;
 
-	/** Field for context dependency */
-	private ContextManager context;
-
-	/** Field for fireDetector dependency */
-	private FireDetector fireDetector;
+	private HashMap<String, Boolean> tooMuchCO;
+	
+	private HashMap<String, Boolean> tooMuchCO2;
+	
+	private boolean fireStarted;
 
 	public GazDetectorImpl() {
 		super();
+		tooMuchCO = new HashMap<String, Boolean>();
+		tooMuchCO2 = new HashMap<String, Boolean>();
+		fireStarted = false;
 	}
 
 	@Override
 	public void run() {
 		try {
 			Thread.sleep(detectionDelay);
-			HashMap<String, Double[]> oldValues = new HashMap<String, Double[]>();
+			HashMap<String, Double[]> coOldValues = new HashMap<String, Double[]>();
+			HashMap<String, Double[]> co2OldValues = new HashMap<String, Double[]>();
 			HashMap<String, Boolean> windowsOpened = new HashMap<String, Boolean>();
+			
 			while(true) {
-//				System.out.println("======== Gas detector report ========");
+				HashMap<String, Boolean> windowsToOpen = new HashMap<String, Boolean>();
+				HashMap<String, Boolean> windowsToClose = new HashMap<String, Boolean>();
 				for(CarbonMonoxydeSensor sensor: coSensors) {
 					String zone = (String) sensor.getPropertyValue("Location");
-//					System.out.println(zone.toUpperCase());
 					
-					if(!oldValues.containsKey(zone)) {
+					if(!coOldValues.containsKey(zone)) {
 						Double arr[] = {0.0, 0.0, 0.0};
-						oldValues.put(zone, arr);
+						coOldValues.put(zone, arr);
 					}
 					if(!windowsOpened.containsKey(zone)) {
 						windowsOpened.put(zone, false);
 					}
+					windowsToOpen.put(zone, false);
+					windowsToClose.put(zone, false);
 					
 					Double currentValue = (Double) sensor.getCOConcentration();
 					if(currentValue == null) {
 						currentValue = 0.0;
 					}
 
-					Double zoneOldVals[] = oldValues.get(zone);
-//					System.out.print("   Last temperatures: [" + currentValue);
-//					for(int i = 0; i < zoneOldVals.length; i++) {
-//						System.out.print(", " + zoneOldVals[i]);
-//					}
-//					System.out.println("]");
+					Double zoneCOOldVals[] = coOldValues.get(zone);
 					
-					if(!fireDetector.fireStarted() && !windowsOpened.get(zone) && shouldOpenWindowInRoom(zoneOldVals, currentValue)) {
+					if(!fireStarted && !windowsOpened.get(zone) && shouldOpenWindowInRoom(zoneCOOldVals, currentValue, coThresholdMax)) {
+						windowsToOpen.put(zone, true);
+					} else if(windowsOpened.get(zone) && shouldCloseWindowInRoom(zoneCOOldVals, currentValue, coThresholdMin)) {
+						windowsToClose.put(zone, true);
+					}
+					
+					tooMuchCO.put(zone, shouldOpenWindowInRoom(zoneCOOldVals, currentValue, coThresholdMax));
+					
+					for(int i = zoneCOOldVals.length - 1; i > 0; i--) {
+						zoneCOOldVals[i] = zoneCOOldVals[i - 1];
+					}
+					zoneCOOldVals[0] = currentValue;
+					coOldValues.put(zone, zoneCOOldVals);
+				}
+				
+				for(CarbonDioxydeSensor sensor: co2Sensors) {
+					String zone = (String) sensor.getPropertyValue("Location");
+					
+					if(!co2OldValues.containsKey(zone)) {
+						Double arr[] = {0.0, 0.0, 0.0};
+						co2OldValues.put(zone, arr);
+					}
+					if(!windowsOpened.containsKey(zone)) {
+						windowsOpened.put(zone, false);
+					}
+					windowsToOpen.put(zone, false);
+					windowsToClose.put(zone, false);
+					
+					Double currentValue = (Double) sensor.getCO2Concentration();
+					if(currentValue == null) {
+						currentValue = 0.0;
+					}
+
+					Double zoneCO2OldVals[] = co2OldValues.get(zone);
+					
+					if(!fireStarted && !windowsOpened.get(zone) && shouldOpenWindowInRoom(zoneCO2OldVals, currentValue, co2ThresholdMax)) {
+						windowsToOpen.put(zone, true);
+					} else if(windowsOpened.get(zone) && shouldCloseWindowInRoom(zoneCO2OldVals, currentValue, co2ThresholdMin)) {
+						windowsToClose.put(zone, true);
+					}
+					
+					tooMuchCO2.put(zone, shouldOpenWindowInRoom(zoneCO2OldVals, currentValue, co2ThresholdMax));
+					
+					for(int i = zoneCO2OldVals.length - 1; i > 0; i--) {
+						zoneCO2OldVals[i] = zoneCO2OldVals[i - 1];
+					}
+					zoneCO2OldVals[0] = currentValue;
+					co2OldValues.put(zone, zoneCO2OldVals);
+				}
+				
+				for(String zone: windowsOpened.keySet()) {
+					if(windowsToOpen.get(zone)) {
 						windowsOpened.put(zone, true);
 						openWindowsInRoom(zone);
-					} else if(windowsOpened.get(zone) && shouldCloseWindowInRoom(zoneOldVals, currentValue)) {
+					} else if(windowsToClose.get(zone)) {
 						windowsOpened.put(zone, false);
 						closeWindowsInRoom(zone);
 					}
-//					System.out.println("   Windows opened: " + windowsOpened.get(zone));
-					
-					for(int i = zoneOldVals.length - 1; i > 0; i--) {
-						zoneOldVals[i] = zoneOldVals[i - 1];
-					}
-					zoneOldVals[0] = currentValue;
-					oldValues.put(zone, zoneOldVals);
-//					System.out.println();
 				}
 				Thread.sleep(detectionDelay);
 			}
@@ -121,20 +171,20 @@ public class GazDetectorImpl implements Runnable {
 		System.out.println("Gas detector started");
 	}
 	
-	private boolean shouldOpenWindowInRoom(Double oldValues[], Double currentValue) {
+	private boolean shouldOpenWindowInRoom(Double oldValues[], Double currentValue, double thresholdMax) {
 		int i = 0;
-		while(i < oldValues.length && oldValues[i] > coThresholdMax) {
+		while(i < oldValues.length && oldValues[i] > thresholdMax) {
 			i++;
 		}
-		return i == oldValues.length && currentValue > coThresholdMax;
+		return i == oldValues.length && currentValue > thresholdMax;
 	}
 	
-	private boolean shouldCloseWindowInRoom(Double oldValues[], Double currentValue) {
+	private boolean shouldCloseWindowInRoom(Double oldValues[], Double currentValue, double thresholdMin) {
 		int i = 0;
-		while(i < oldValues.length && oldValues[i] < coThresholdMin) {
+		while(i < oldValues.length && oldValues[i] < thresholdMin) {
 			i++;
 		}
-		return i == oldValues.length && currentValue < coThresholdMin;
+		return i == oldValues.length && currentValue < thresholdMin;
 	}
 
 	private void openWindowsInRoom(String location) {
@@ -154,9 +204,33 @@ public class GazDetectorImpl implements Runnable {
 			}
 		}
 	}
-	
-	
-	
-	
+
+	/** Bind Method for co2Sensors dependency */
+	public void bindCO2Sensor(CarbonDioxydeSensor carbonDioxydeSensor, Map properties){
+	}
+
+	/** Unbind Method for co2Sensors dependency */
+	public void unbindCO2Sensor(CarbonDioxydeSensor carbonDioxydeSensor, Map properties){
+	}
+
+	@Override
+	public boolean tooMuchCOInZone(String zone) {
+		return tooMuchCO.containsKey(zone) && tooMuchCO.get(zone);
+	}
+
+	@Override
+	public boolean tooMuchCO2InZone(String zone) {
+		return tooMuchCO2.containsKey(zone) && tooMuchCO2.get(zone);
+	}
+
+	@Override
+	public void fireStarted() {
+		fireStarted = true;
+	}
+
+	@Override
+	public void fireStopped() {
+		fireStarted = false;
+	}
 
 }
