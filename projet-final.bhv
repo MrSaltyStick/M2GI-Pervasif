@@ -9,11 +9,13 @@
 	<modify-zone-variable zoneId="kitchen" variable="COConcentration" value="34.0"/>	
 	
 	<create-device id="Kit-CO" type="iCasa.COGasSensor" />
+	<create-device id="Kit-CO2" type="iCasa.CO2GasSensor" />
 	<create-device id="Kit-Win1" type="iCasa.Window" />
 	<create-device id="Kit-Win2" type="iCasa.Window" />
 	<create-device id="Kit-T1" type="iCasa.CustomThermometer" />
 	<create-device id="Kit-P1" type="iCasa.PresenceSensor" />
 	<move-device-zone deviceId="Kit-CO" zoneId="kitchen" />
+	<move-device-zone deviceId="Kit-CO2" zoneId="kitchen" />
 	<move-device-zone deviceId="Kit-Win1" zoneId="kitchen" />
 	<move-device-zone deviceId="Kit-Win2" zoneId="kitchen" />
 	<move-device-zone deviceId="Kit-T1" zoneId="kitchen" />
@@ -28,6 +30,7 @@
 	<modify-zone-variable zoneId="livingroom" variable="COConcentration" value="34.0"/>
 	
 	<create-device id="Liv-CO" type="iCasa.COGasSensor" />
+	<create-device id="Liv-CO2" type="iCasa.CO2GasSensor" />
 	<create-device id="Liv-Win1" type="iCasa.Window" />
 	<create-device id="Liv-Win2" type="iCasa.Window" />
 	<create-device id="Liv-T1" type="iCasa.CustomThermometer" />
@@ -35,6 +38,7 @@
 	<move-device-zone deviceId="Liv-T1" zoneId="livingroom" />
 	<move-device-zone deviceId="Liv-P1" zoneId="livingroom" />
 	<move-device-zone deviceId="Liv-CO" zoneId="livingroom" />
+	<move-device-zone deviceId="Liv-CO2" zoneId="livingroom" />
 	<move-device-zone deviceId="Liv-Win1" zoneId="livingroom" />
 	<move-device-zone deviceId="Liv-Win2" zoneId="livingroom" />
 	
@@ -47,11 +51,13 @@
 	<modify-zone-variable zoneId="bedroom" variable="COConcentration" value="34.0"/>
 	
 	<create-device id="Bed-CO" type="iCasa.COGasSensor" />
+	<create-device id="Bed-CO2" type="iCasa.CO2GasSensor" />
 	<create-device id="Bed-Win1" type="iCasa.Window" />
 	<create-device id="Bed-Win2" type="iCasa.Window" />
 	<create-device id="Bed-T1" type="iCasa.CustomThermometer" />
 	<create-device id="Bed-P1" type="iCasa.PresenceSensor" />
 	<move-device-zone deviceId="Bed-CO" zoneId="bedroom" />
+	<move-device-zone deviceId="Bed-CO2" zoneId="bedroom" />
 	<move-device-zone deviceId="Bed-Win1" zoneId="bedroom" />
 	<move-device-zone deviceId="Bed-Win2" zoneId="bedroom" />
 	<move-device-zone deviceId="Bed-T1" zoneId="bedroom" />
@@ -66,11 +72,13 @@
 	<modify-zone-variable zoneId="bathroom" variable="COConcentration" value="34.0"/>
 	
 	<create-device id="Bath-CO" type="iCasa.COGasSensor" />
+	<create-device id="Bath-CO2" type="iCasa.CO2GasSensor" />
 	<create-device id="Bath-Win1" type="iCasa.Window" />
 	<create-device id="Bath-Win2" type="iCasa.Window" />
 	<create-device id="Bath-T1" type="iCasa.CustomThermometer" />
 	<create-device id="Bath-P1" type="iCasa.PresenceSensor" />
 	<move-device-zone deviceId="Bath-CO" zoneId="bathroom" />
+	<move-device-zone deviceId="Bath-CO2" zoneId="bathroom" />
 	<move-device-zone deviceId="Bath-Win1" zoneId="bathroom" />
 	<move-device-zone deviceId="Bath-Win2" zoneId="bathroom" />
 	<move-device-zone deviceId="Bath-T1" zoneId="bathroom" />
